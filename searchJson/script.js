@@ -28,7 +28,7 @@ function SearchNumberWeight() {
             sortArray.push(data[key]);
         }
     }
-    let searchIndex = parseInt(searchNumber)-1;
+    let searchIndex = parseInt(searchNumber);
     console.log("You search " + searchNumber + "the object with weight = " + searchWeight );
     console.log(sortArray[searchIndex]);
     resultLastWeightSearchId.textContent='You search "' + searchNumber + '"eme object with weight = "' + searchWeight +'" : ' + JSON.stringify((sortArray[searchIndex]))
@@ -73,9 +73,8 @@ function SearchSelectElement(){
     let resultSearchElementId=document.getElementById('resultSearchElementId');
     let searchSelectElement = document.getElementById('inputSelectElement').value;
     TableSelected();
-
     console.log("this is the "+searchSelectElement+"e element: ");
-    console.log(data[searchSelectElement-1]);
+    console.log(data[searchSelectElement]);
     resultSearchElementId.textContent="this is the "+searchSelectElement+"e element: "+ JSON.stringify(data[searchSelectElement])
 }
 
