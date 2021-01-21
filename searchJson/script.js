@@ -3,7 +3,7 @@ function SearchLabel(){
     let resultSearchLabelId=document.getElementById('resultSearchLabelId');
     TableSelected();
     let index =0;
-    while(data[index].label!=searchLabel&&i<data.length)
+    while(data[index].label!=searchLabel&&index<data.length)
     {
         index++;
     }
@@ -21,17 +21,23 @@ function SearchNumberWeight() {
     let resultLastWeightSearchId=document.getElementById('resultLastWeightSearchId');
     TableSelected();
     let sortArray =  new Array();
-    for(let key in data)
+    let index=0;
+    let flag=0;
+    while(index<data.length&&flag<parseInt(searchNumber)-1)
     {
-        if(data[key].weight===searchWeight)
+        index++;
+        if(data[index].weight===parseInt(searchWeight))
         {
-            sortArray.push(data[key]);
+            flag++;
         }
     }
-    let searchIndex = parseInt(searchNumber)-1;
-    console.log("You search " + searchNumber + "the object with weight = " + searchWeight );
-    console.log(sortArray[searchIndex]);
-    resultLastWeightSearchId.textContent='You search "' + searchNumber + '"eme object with weight = "' + searchWeight +'" : ' + JSON.stringify((sortArray[searchIndex]))
+    if(flag===parseInt(searchNumber)-1)
+    {
+        console.log("You search " + searchNumber + "the object with weight = " + searchWeight);
+        console.log(data[index]);
+        resultLastWeightSearchId.textContent='You search "' + searchNumber + '"eme object with weight = "' + searchWeight +'" : ' + JSON.stringify((data[index]))
+    
+    }
 }
 
 function SearchWeightLast(){
