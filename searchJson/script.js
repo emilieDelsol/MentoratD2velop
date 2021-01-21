@@ -38,17 +38,18 @@ function SearchWeightLast(){
     let searchWeight = document.getElementById('inputWeightLast').value;
     let resultAllLabelsId = document.getElementById('resultAllLabelsId');
     TableSelected();
-    let sortArray =  new Array();
-    for(let key in data)
+    data.reverse()
+    let index=0;
+    while(data[index].weight!=searchWeight&&index<data.length)
     {
-        if(data[key].weight===searchWeight)
-        {
-            sortArray.push(data[key]);
-        }
+        index++;
     }
-    console.log("the last object with weight="+searchWeight+" is:");
-    console.log(sortArray.pop());
-    resultAllLabelsId.textContent='the last object with weight="'+searchWeight+'" is: ' + JSON.stringify(sortArray.pop())
+    if(index<data.length)
+    {
+        console.log("the last object with weight="+searchWeight+" is:");
+        console.log(data[index]);
+        resultAllLabelsId.textContent='the last object with weight="'+searchWeight+'" is: ' + JSON.stringify(data[index])
+    }
 }
 
 function SearchAllLabel(){
