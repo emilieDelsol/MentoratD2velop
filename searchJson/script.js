@@ -20,7 +20,6 @@ function SearchNumberWeight() {
     let searchWeight = document.getElementById('inputWeight').value;
     let resultLastWeightSearchId=document.getElementById('resultLastWeightSearchId');
     TableSelected();
-    let sortArray =  new Array();
     let index=0;
     let flag=0;
     while(index<data.length&&flag<parseInt(searchNumber)-1)
@@ -36,7 +35,6 @@ function SearchNumberWeight() {
         console.log("You search " + searchNumber + "the object with weight = " + searchWeight);
         console.log(data[index]);
         resultLastWeightSearchId.textContent='You search "' + searchNumber + '"eme object with weight = "' + searchWeight +'" : ' + JSON.stringify((data[index]))
-    
     }
 }
 
@@ -63,7 +61,6 @@ function SearchAllLabel(){
     let resultSearchElementId = document.getElementById('resultSearchElementId');
     TableSelected();
     let arrayAllLabel = new Array();
-    let i =0;
     for(let key in data)
     {
         if(data[key].label===searchAllLabel)
@@ -72,10 +69,11 @@ function SearchAllLabel(){
             i++;
         }
     }
-    console.log("there is "+i+" values");
+    console.log("there is "+arrayAllLabel.length+" values");
     console.log(arrayAllLabel);
-    resultSearchElementId.textContent="there is "+i+" values: " + JSON.stringify(arrayAllLabel);
+    resultSearchElementId.textContent="there is "+arrayAllLabel.length+" values: " + JSON.stringify(arrayAllLabel);
 }
+
 function SearchSelectElement(){
     let resultSearchElementId=document.getElementById('resultSearchElementId');
     let searchSelectElement = document.getElementById('inputSelectElement').value;
