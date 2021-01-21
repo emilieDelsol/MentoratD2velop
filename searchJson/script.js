@@ -73,7 +73,6 @@ function SearchSelectElement(){
     let resultSearchElementId=document.getElementById('resultSearchElementId');
     let searchSelectElement = document.getElementById('inputSelectElement').value;
     TableSelected();
-
     console.log("this is the "+searchSelectElement+"e element: ");
     console.log(data[searchSelectElement-1]);
     resultSearchElementId.textContent="this is the "+searchSelectElement+"e element: "+ JSON.stringify(data[searchSelectElement])
