@@ -3,7 +3,7 @@ function SearchLabel(){
     let resultSearchLabelId = document.getElementById('resultSearchLabelId');
     TableSelected();
     let index = 0;
-    while(data[index].label != searchLabel && index < data.length)
+    while(data[index].label !== searchLabel && index < data.length)
     {
         index++;
     }
@@ -44,7 +44,7 @@ function SearchWeightLast(){
     TableSelected();
     data.reverse()
     let index=0;
-    while(data[index].weight != searchWeight && index < data.length)
+    while(data[index].weight !== searchWeight && index < data.length)
     {
         index++;
     }
