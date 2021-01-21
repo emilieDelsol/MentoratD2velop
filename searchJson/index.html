@@ -4,50 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Exercice 1</title>
 </head>
 <body>
-    <div> 
-        <p>Choose a table: </p>
-        <label for="tableSelect">Choose a table:</label>
-        <select name="tables" id="tableSelect">
+  <h1>Exercice #1:</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" colspan="2">#</th>
+        <th scope="col" colspan="2">
+          <label for="tableSelect" class="m-auto">Choose a table:</label>
+          <select name="tables" id="tableSelect">
             <option value="">--Please choose an option--</option>
             <option value="1K">1K.json</option>
             <option value="1M">1M.json</option>
             <option value="50K">50K.json</option>
-        </select>
-
-    </div>
-        <div>
+          </select>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td colspan="2">
           <label for="inputLabel">choose label to search</label>
           <input type="text" id="inputLabel" name="inputLabel" value="">
+        </td>
+        <td>
           <button type="button" id="button" onclick="SearchLabel()">Search</button>
-        </div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td colspan="2">
+          <label for="inputNumber">choose number </label>
+          <input type="number" id="inputNumber" name="inputNumber" value="">
+        
+          <label for="inputWeight">choose weight </label>
+          <input type="number" id="inputWeight" name="inputWeight" value="">
+        </td>
+        <td>
+          <button type="button" id="button" onclick="SearchNumberWeight()">Search</button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2"> 
+          <label for="inputWeightLast">choose weight </label>
+          <input type="number" id="inputWeightLast" name="inputWeightLast" value="">
+        </td>
+        <td>
+          <button type="button" id="button" onclick="SearchWeightLast()">Search last weight</button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td colspan="2">
+          <label for="inputAllLabel">choose label to search all Labels:</label>
+          <input type="text" id="inputAllLabel" name="inputAllLabel" value="">
+        </td>
+        <td><button type="button" id="button" onclick="SearchAllLabel()">Search</button></td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td colspan="2">
+          <label for="inputAllLabel">choose number to select:</label>
+          <input type="number" id="inputSelectElement" name="inputSelectElement" value="">
+        </td>
+        <td>
+          <button type="button" id="button" onclick="SearchSelectElement()">Search</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <section>
+    <div>
+        <p id="resultSearchLabelId"></p>
+    </div>
+    <div>
+      <p id="resultWeightSearchNumberId"></p>
+    </div>
+    <div>
+      <p id="resultLastWeightSearchId"></p>
+    </div>
+    <div>
+      <p id="resultAllLabelsId"></p>
+    </div>
+    <div>
+      <p id="resultSearchElementId"></p>
+    </div>
+    <div></div>
+  </section>
 
-        <div>
-            <label for="inputNumber">choose number </label>
-            <input type="number" id="inputNumber" name="inputNumber" value="">
-            <label for="inputWeight">choose weight </label>
-            <input type="number" id="inputWeight" name="inputWeight" value="">
-            <button type="button" id="button" onclick="SearchNumberWeight()">Search</button>
-        </div>
-
-        <div>
-            <label for="inputWeightLast">choose weight </label>
-            <input type="number" id="inputWeightLast" name="inputWeightLast" value="">
-            <button type="button" id="button" onclick="SearchWeightLast()">Search last weight</button>
-        </div>
-
-        <div>
-            <label for="inputAllLabel">choose label to search all Labels:</label>
-            <input type="text" id="inputAllLabel" name="inputAllLabel" value="">
-            <button type="button" id="button" onclick="SearchAllLabel()">Search</button>
-          </div>
-
-    <script type="text/javascript">
-        var data1K="";
-    </script>
     <script type="text/javascript" src="1K.js"></script>
     <script type="text/javascript" src="1M.js"></script>
     <script type="text/javascript" src="50K.js"></script>
