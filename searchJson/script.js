@@ -1,12 +1,15 @@
 function SearchLabel(){
+    
     let searchLabel = document.getElementById('inputLabel').value;
     let resultSearchLabelId = document.getElementById('resultSearchLabelId');
-    TableSelected();
     let index = 0;
+    
+    TableSelected();
     while(data[index].label !== searchLabel && index < data.length)
     {
         index++;
     }
+
     if(index <= data.length)
     {
         console.log("the first object with label="+searchLabel+" is:");
@@ -16,12 +19,14 @@ function SearchLabel(){
 }
 
 function SearchNumberWeight() {
+    
     let searchNumber = document.getElementById('inputNumber').value;
     let searchWeight = document.getElementById('inputWeight').value;
     let resultLastWeightSearchId = document.getElementById('resultLastWeightSearchId');
-    TableSelected();
     let index=0;
     let flag=0;
+    
+    TableSelected();
     while(index < data.length && flag < parseInt(searchNumber)-1)
     {
         index++;
@@ -30,6 +35,7 @@ function SearchNumberWeight() {
             flag++;
         }
     }
+    
     if(flag === parseInt(searchNumber)-1)
     {
         console.log("You search " + searchNumber + "the object with weight = " + searchWeight);
@@ -39,15 +45,18 @@ function SearchNumberWeight() {
 }
 
 function SearchWeightLast(){
+    
     let searchWeight = document.getElementById('inputWeightLast').value;
     let resultAllLabelsId = document.getElementById('resultAllLabelsId');
+    let index=0;
+    
     TableSelected();
     data.reverse()
-    let index=0;
     while(data[index].weight !== searchWeight && index < data.length)
     {
         index++;
     }
+    
     if(index < data.length)
     {
         console.log("the last object with weight="+searchWeight+" is:");
@@ -57,10 +66,12 @@ function SearchWeightLast(){
 }
 
 function SearchAllLabel(){
+    
     let searchAllLabel = document.getElementById('inputAllLabel').value;
     let resultSearchElementId = document.getElementById('resultSearchElementId');
-    TableSelected();
     let arrayAllLabel = new Array();
+    
+    TableSelected();
     for(let key in data)
     {
         if(data[key].label === searchAllLabel)
@@ -69,22 +80,29 @@ function SearchAllLabel(){
             i++;
         }
     }
+    
     console.log("there is "+arrayAllLabel.length+" values");
     console.log(arrayAllLabel);
     resultSearchElementId.textContent="there is "+arrayAllLabel.length+" values: " + JSON.stringify(arrayAllLabel);
 }
 
 function SearchSelectElement(){
+    
     let resultSearchElementId=document.getElementById('resultSearchElementId');
-    let searchSelectElement = document.getElementById('inputSelectElement').value;
+    let searchSelectElement = parseInt(document.getElementById('inputSelectElement').value);
+    
     TableSelected();
+    let searchElementResult=JSON.stringify(data[searchSelectElement]);
+
     console.log("this is the "+searchSelectElement+"e element: ");
     console.log(data[searchSelectElement-1]);
-    resultSearchElementId.textContent="this is the "+searchSelectElement+"e element: "+ JSON.stringify(data[searchSelectElement])
+    resultSearchElementId.textContent="this is the "+searchSelectElement+"e element: "+ searchElementResult
 }
 
 function TableSelected(){
+    
     let tableSelect = document.getElementById('tableSelect').value;
+    
     if(tableSelect === "1K")
     {
         data = data1K;
@@ -101,6 +119,7 @@ function TableSelected(){
     {
         alert("please choose a table!");
     }    
+    
     console.log("search in table: " + tableSelect);
     
 }
