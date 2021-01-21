@@ -20,23 +20,23 @@ function SearchLabel(){
 
 function SearchNumberWeight() {
 
-    let searchNumber = document.getElementById('inputNumber').value;
-    let searchWeight = document.getElementById('inputWeight').value;
+    let searchNumber = parseInt(document.getElementById('inputNumber').value);
+    let searchWeight = parseInt(document.getElementById('inputWeight').value);
     let resultLastWeightSearchId = document.getElementById('resultLastWeightSearchId');
     let index=0;
     let flag=0;
     
     TableSelected();
-    while(index < data.length && flag < parseInt(searchNumber)-1)
+    while(index < data.length && flag < searchNumber-1)
     {
         index++;
-        if(data[index].weight === parseInt(searchWeight))
+        if(data[index].weight === searchWeight)
         {
             flag++;
         }
     }
     
-    if(flag === parseInt(searchNumber)-1)
+    if(flag === searchNumber-1)
     {
         console.log(`You search ${searchNumber} the object with weight = ${searchWeight}`);
         console.log(data[index]);
