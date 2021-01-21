@@ -1,13 +1,13 @@
 function SearchLabel(){
     let searchLabel = document.getElementById('inputLabel').value;
-    let resultSearchLabelId=document.getElementById('resultSearchLabelId');
+    let resultSearchLabelId = document.getElementById('resultSearchLabelId');
     TableSelected();
-    let index =0;
-    while(data[index].label!=searchLabel&&index<data.length)
+    let index = 0;
+    while(data[index].label != searchLabel && index < data.length)
     {
         index++;
     }
-    if(index<=data.length)
+    if(index <= data.length)
     {
         console.log("the first object with label="+searchLabel+" is:");
         console.log(data[index]);
@@ -18,19 +18,19 @@ function SearchLabel(){
 function SearchNumberWeight() {
     let searchNumber = document.getElementById('inputNumber').value;
     let searchWeight = document.getElementById('inputWeight').value;
-    let resultLastWeightSearchId=document.getElementById('resultLastWeightSearchId');
+    let resultLastWeightSearchId = document.getElementById('resultLastWeightSearchId');
     TableSelected();
     let index=0;
     let flag=0;
-    while(index<data.length&&flag<parseInt(searchNumber)-1)
+    while(index < data.length && flag < parseInt(searchNumber)-1)
     {
         index++;
-        if(data[index].weight===parseInt(searchWeight))
+        if(data[index].weight === parseInt(searchWeight))
         {
             flag++;
         }
     }
-    if(flag===parseInt(searchNumber)-1)
+    if(flag === parseInt(searchNumber)-1)
     {
         console.log("You search " + searchNumber + "the object with weight = " + searchWeight);
         console.log(data[index]);
@@ -44,15 +44,15 @@ function SearchWeightLast(){
     TableSelected();
     data.reverse()
     let index=0;
-    while(data[index].weight!=searchWeight&&index<data.length)
+    while(data[index].weight != searchWeight && index < data.length)
     {
         index++;
     }
-    if(index<data.length)
+    if(index < data.length)
     {
         console.log("the last object with weight="+searchWeight+" is:");
         console.log(data[index]);
-        resultAllLabelsId.textContent='the last object with weight="'+searchWeight+'" is: ' + JSON.stringify(data[index])
+        resultAllLabelsId.textContent = 'the last object with weight="'+searchWeight+'" is: ' + JSON.stringify(data[index])
     }
 }
 
@@ -63,7 +63,7 @@ function SearchAllLabel(){
     let arrayAllLabel = new Array();
     for(let key in data)
     {
-        if(data[key].label===searchAllLabel)
+        if(data[key].label === searchAllLabel)
         {
             arrayAllLabel.push(data[key]);
             i++;
@@ -85,22 +85,22 @@ function SearchSelectElement(){
 
 function TableSelected(){
     let tableSelect = document.getElementById('tableSelect').value;
-    if(tableSelect==="1K")
+    if(tableSelect === "1K")
     {
-        data=data1K;
+        data = data1K;
     }
-    else if(tableSelect==="1M")
+    else if(tableSelect === "1M")
     {
-        data=data1M;
+        data = data1M;
     }
-    else if(tableSelect==="50K")
+    else if(tableSelect === "50K")
     {
-        data=data1M;
+        data = data1M;
     }
     else
     {
         alert("please choose a table!");
     }    
-    console.log("search in table: "+tableSelect);
+    console.log("search in table: " + tableSelect);
     
 }
