@@ -12,14 +12,14 @@ function SearchLabel(){
 
     if(index <= data.length)
     {
-        console.log("the first object with label="+searchLabel+" is:");
+        console.log(`the first object with label=${searchLabel} is:`);
         console.log(data[index]);
-        resultSearchLabelId.textContent='the first object with label "' + searchLabel+ '" is: '+ JSON.stringify(data[index]) ;
+        resultSearchLabelId.textContent=`the first object with label ${searchLabel} is: ${JSON.stringify(data[index])}` ;
     }
 }
 
 function SearchNumberWeight() {
-    
+
     let searchNumber = document.getElementById('inputNumber').value;
     let searchWeight = document.getElementById('inputWeight').value;
     let resultLastWeightSearchId = document.getElementById('resultLastWeightSearchId');
@@ -38,9 +38,9 @@ function SearchNumberWeight() {
     
     if(flag === parseInt(searchNumber)-1)
     {
-        console.log("You search " + searchNumber + "the object with weight = " + searchWeight);
+        console.log(`You search ${searchNumber} the object with weight = ${searchWeight}`);
         console.log(data[index]);
-        resultLastWeightSearchId.textContent='You search "' + searchNumber + '"eme object with weight = "' + searchWeight +'" : ' + JSON.stringify((data[index]))
+        resultLastWeightSearchId.textContent=`You search ${searchNumber}e object with weight = ${searchWeight} : ${JSON.stringify((data[index]))}`
     }
 }
 
@@ -59,9 +59,9 @@ function SearchWeightLast(){
     
     if(index < data.length)
     {
-        console.log("the last object with weight="+searchWeight+" is:");
+        console.log(`the last object with weight=${searchWeight} is:`);
         console.log(data[index]);
-        resultAllLabelsId.textContent = 'the last object with weight="'+searchWeight+'" is: ' + JSON.stringify(data[index])
+        resultAllLabelsId.textContent = `the last object with weight=${searchWeight} is: ${JSON.stringify(data[index])}`
     }
 }
 
@@ -81,9 +81,9 @@ function SearchAllLabel(){
         }
     }
     
-    console.log("there is "+arrayAllLabel.length+" values");
+    console.log(`there is ${arrayAllLabel.length} values`);
     console.log(arrayAllLabel);
-    resultSearchElementId.textContent="there is "+arrayAllLabel.length+" values: " + JSON.stringify(arrayAllLabel);
+    resultSearchElementId.textContent=`there is ${arrayAllLabel.length} values: ${JSON.stringify(arrayAllLabel)}`;
 }
 
 function SearchSelectElement(){
@@ -94,9 +94,9 @@ function SearchSelectElement(){
     TableSelected();
     let searchElementResult=JSON.stringify(data[searchSelectElement]);
 
-    console.log("this is the "+searchSelectElement+"e element: ");
+    console.log(`this is the ${searchSelectElement}e element: `);
     console.log(data[searchSelectElement-1]);
-    resultSearchElementId.textContent="this is the "+searchSelectElement+"e element: "+ searchElementResult
+    resultSearchElementId.textContent=`this is the ${searchSelectElement}e element: ${searchElementResult}`
 }
 
 function TableSelected(){
@@ -120,6 +120,6 @@ function TableSelected(){
         alert("please choose a table!");
     }    
     
-    console.log("search in table: " + tableSelect);
+    console.log(`search in table: ${tableSelect}`);
     
 }
