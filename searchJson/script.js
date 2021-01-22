@@ -51,18 +51,18 @@ function SearchWeightLast(){
     let index=0;
     
     TableSelected();
-    data.reverse()
-    while(data[index].weight !== searchWeight && index < data.length)
+    data.reverse();
+    while(index < data.length)
     {
+        if(data[index].weight == searchWeight)
+        {
+            console.log(`the last object with weight=${searchWeight} is:`);
+            console.log(data[index]);
+            resultAllLabelsId.textContent = `the last object with weight=${searchWeight} is: ${JSON.stringify(data[index])}`
+        }
         index++;
     }
     
-    if(index < data.length)
-    {
-        console.log(`the last object with weight=${searchWeight} is:`);
-        console.log(data[index]);
-        resultAllLabelsId.textContent = `the last object with weight=${searchWeight} is: ${JSON.stringify(data[index])}`
-    }
 }
 
 function SearchAllLabel(){
