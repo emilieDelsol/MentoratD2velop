@@ -72,11 +72,11 @@ function SearchAllLabel(){
     let arrayAllLabel = new Array();
     
     TableSelected();
-    for(let key in data)
+    for(let element of data)
     {
-        if(data[key].label === searchAllLabel)
+        if(element.label === searchAllLabel)
         {
-            arrayAllLabel.push(data[key]);
+            arrayAllLabel.push(element);
 
         }
     }
