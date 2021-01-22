@@ -77,7 +77,7 @@ function SearchAllLabel(){
         if(data[key].label === searchAllLabel)
         {
             arrayAllLabel.push(data[key]);
-            i++;
+
         }
     }
     
