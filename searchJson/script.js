@@ -49,18 +49,21 @@ function SearchWeightLast(){
     let searchWeight = document.getElementById('inputWeightLast').value;
     let resultAllLabelsId = document.getElementById('resultAllLabelsId');
     let index=0;
-    
+    let flag;
     TableSelected();
-    data.reverse();
     while(index < data.length)
     {
         if(data[index].weight == searchWeight)
         {
-            console.log(`the last object with weight=${searchWeight} is:`);
-            console.log(data[index]);
-            resultAllLabelsId.textContent = `the last object with weight=${searchWeight} is: ${JSON.stringify(data[index])}`
+            flag=index;
         }
         index++;
+    }
+    if(flag!==null)
+    {
+        console.log(`the last object with weight=${searchWeight} is:`);
+        console.log(data[flag]);
+        resultAllLabelsId.textContent = `the last object with weight=${searchWeight} is: ${JSON.stringify(data[flag])}`
     }
     
 }
