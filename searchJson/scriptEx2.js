@@ -8,11 +8,10 @@ function InsertionSortWeight()
     {
         let flag = data[i];
         let flagLabel = ConvertLabel(data[i].label);
-        let dataJMinus1 = ConvertLabel(data[j-1].label);
         let j = i;
         iteration++;
         
-        while(j>0 && (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight && dataJMinus1 > flagLabel) ))
+        while(j>0 && (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight && ConvertLabel(data[j-1].label) > flagLabel) ))
         {
             comparaison++;
             data[j] = data[j-1];
