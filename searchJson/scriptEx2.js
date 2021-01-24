@@ -14,6 +14,7 @@ function InsertionSortWeight()
         
         while(j>0 && (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight && data[j-1].label > flagLabel) ))
         {
+            iteration++;
             comparaison++;
             data[j] = data[j-1];
             j = j - 1;

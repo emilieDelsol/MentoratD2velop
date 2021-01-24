@@ -36,6 +36,7 @@ function InsertionSort(table)
         iteration++;
         while (j>0 && table[j - 1] > val)
         {
+            iteration++;
             comparaison++;
             table[j] = table[j - 1];
             j = j - 1;
