@@ -8,11 +8,11 @@ function InsertionSortWeight()
     for(let i = 0; i < data.length; i++)
     {
         let flag = data[i];
-        let flagLabel = ConvertLabel(data[i].label);
+        let flagLabel = data[i].label;
         let j = i;
         iteration++;
         
-        while(j>0 && (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight && ConvertLabel(data[j-1].label) > flagLabel) ))
+        while(j>0 && (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight && data[j-1].label > flagLabel) ))
         {
             comparaison++;
             data[j] = data[j-1];
@@ -31,15 +31,15 @@ function BubbleSortWeight()
     TableSelected();
     let iteration = 0;
     let comparaison = 0;
-
+    
     for (let j = 0 ; j < data.length-2; j++)
     {
         iteration++;
         for (let i = 0 ; i < data.length-2; i++)
         {
             iteration++;
-            let labeli = ConvertLabel(data[i].label);
-            let labeliPlus1 = ConvertLabel(data[i+1].label);
+            let labeli = data[i].label;
+            let labeliPlus1 = data[i+1].label;
 
             if (data[i].weight > data[i + 1].weight || (data[i].weight === data[i+1].weight && labeli > labeliPlus1))
             {
@@ -73,8 +73,8 @@ function CocktailSortWeight()
         {
             iteration++;
             
-            let valLabel = ConvertLabel(val.label);
-            let dataJlabel = ConvertLabel(data[j].label);
+            let valLabel = val.label;
+            let dataJlabel = data[j].label;
             
             if (val.weight < data[j].weight || (val.weight === data[j].weight && valLabel < dataJlabel))
             {
@@ -109,8 +109,8 @@ function BubbleSortLabel()
         for (let i = 0 ; i < data.length-2; i++)
         {
             iteration++;
-            let labeli = ConvertLabel(data[i].label);
-            let labeliPlus1 = ConvertLabel(data[i+1].label);
+            let labeli = data[i].label;
+            let labeliPlus1 = data[i+1].label;
 
             if(labeli > labeliPlus1)            
             {
@@ -125,3 +125,4 @@ function BubbleSortLabel()
     console.log(data);
     console.log(`iteration: ${iteration} comparaison: ${comparaison}`);
 }
+
