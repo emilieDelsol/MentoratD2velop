@@ -45,28 +45,15 @@ function BubbleSortWeight()
         for (let i = 0 ; i < data.length-2; i++)
         {
             iteration++;
-            if (data[i].weight >= data[i + 1].weight)
-            {
-                if(data[i].weight === data[i+1].weight)
-                {
-                    let labeli = ConvertLabel(data[i].label);
-                    let labeliPlus1 = ConvertLabel(data[i+1].label);
+            let labeli = ConvertLabel(data[i].label);
+            let labeliPlus1 = ConvertLabel(data[i+1].label);
 
-                    if(labeli > labeliPlus1)            
-                    {
-                        comparaison++;
-                        let temp = data[i + 1];
-                        data[i + 1] = data[i];
-                        data[i] = temp;
-                    }
-                }
-                else
-                {
-                    comparaison++;
-                    let temp = data[i + 1];
-                    data[i + 1] = data[i];
-                    data[i] = temp;
-                }
+            if (data[i].weight > data[i + 1].weight || (data[i].weight === data[i+1].weight && labeli > labeliPlus1))
+            {
+                comparaison++;
+                let temp = data[i + 1];
+                data[i + 1] = data[i];
+                data[i] = temp;
             }
         }
     }
@@ -119,6 +106,7 @@ function CocktailSortWeight()
             
             let valLabel = ConvertLabel(val.label);
             let dataJlabel = ConvertLabel(data[j].label);
+
             if (val.weight < data[j].weight || (val.weight === data[j].weight && valLabel < dataJlabel))
             {
                 comparaison++;
