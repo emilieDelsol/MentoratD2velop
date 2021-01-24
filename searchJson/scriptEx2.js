@@ -33,22 +33,21 @@ function BubbleSortWeight()
     let iteration = 0;
     let comparaison = 0;
     
-    for (let j = 0 ; j < data.length-2; j++)
+    for (let i = data.length ; i > 1; i--)
     {
         iteration++;
-        for (let i = 0 ; i < data.length-2; i++)
+        for (let j = 0 ; j < i-1; j++)
         {
             iteration++;
-            let labeli = data[i].label;
-            let labeliPlus1 = data[i+1].label;
+            let labelJ = data[j].label;
+            let labeljPlus1 = data[j+1].label;
 
-            if (data[i].weight > data[i + 1].weight || (data[i].weight === data[i+1].weight && labeli > labeliPlus1))
+            if (data[j+1].weight < data[j].weight || (data[j+1].weight === data[j].weight && labeljPlus1 < labelJ))
             {
                 comparaison++;
-
-                let temp = data[i + 1];
-                data[i + 1] = data[i];
-                data[i] = temp;
+                let temp = data[j + 1];
+                data[j + 1] = data[j];
+                data[j] = temp;
             }
         }
     }
@@ -104,16 +103,17 @@ function BubbleSortLabel()
     let iteration = 0;
     let comparaison = 0;
 
-    for (let j = 0 ; j < data.length-2; j++)
+    
+    for (let i = data.length ; i > 1; i--)
     {
         iteration++;
-        for (let i = 0 ; i < data.length-2; i++)
+        for (let j = 0 ; j < i-1; j++)
         {
             iteration++;
-            let labeli = data[i].label;
-            let labeliPlus1 = data[i+1].label;
+            let labelJ = data[j].label;
+            let labeljPlus1 = data[j+1].label;
 
-            if(labeli > labeliPlus1)            
+            if(labelJ > labeljPlus1)            
             {
                 comparaison++;
                 let temp = data[i + 1];
