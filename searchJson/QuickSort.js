@@ -25,6 +25,7 @@ function QuickSort(data, left, right)
     
     return (data);
 }
+
 function Partition(data, left, right)
 {
     let pivotWeight = data[Math.floor((right+left)/2)].weight;
