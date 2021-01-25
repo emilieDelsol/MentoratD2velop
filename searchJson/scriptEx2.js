@@ -11,7 +11,6 @@ function InsertionSortWeight()
         let flagLabel = data[i].label;
         let j = i;
         iteration++;
-        
         while(j>0 && (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight && data[j-1].label > flagLabel) ))
         {
             iteration++;
@@ -45,9 +44,7 @@ function BubbleSortWeight()
             if (data[j+1].weight < data[j].weight || (data[j+1].weight === data[j].weight && labeljPlus1 < labelJ))
             {
                 comparaison++;
-                let temp = data[j + 1];
-                data[j + 1] = data[j];
-                data[j] = temp;
+                Swap(data, data[j + 1], data[j])
             }
         }
     }
@@ -79,9 +76,8 @@ function CocktailSortWeight()
             if (val.weight < data[j].weight || (val.weight === data[j].weight && valLabel < dataJlabel))
             {
                 comparaison++;
-                data[j + 1] = data[j];
                 j--;
-                data[j + 1] = val;
+                Swap(data, data[j + 1], data[j])
             }
             else
             {
@@ -96,34 +92,10 @@ function CocktailSortWeight()
 }
 
 
-
-function BubbleSortLabel()
+function Swap(data, leftIndex, rightIndex)
 {
-    TableSelected();
-    let iteration = 0;
-    let comparaison = 0;
-
-    
-    for (let i = data.length ; i > 1; i--)
-    {
-        iteration++;
-        for (let j = 0 ; j < i-1; j++)
-        {
-            iteration++;
-            let labelJ = data[j].label;
-            let labeljPlus1 = data[j+1].label;
-
-            if(labelJ > labeljPlus1)            
-            {
-                comparaison++;
-                let temp = data[i + 1];
-                data[i + 1] = data[i];
-                data[i] = temp;
-            }
-        }
-    }
-
-    console.log(data);
-    console.log(`iteration: ${iteration} comparaison: ${comparaison}`);
+    let temp = data[leftIndex];
+    data[leftIndex] = data[rightIndex];
+    data[rightIndex] = temp;
 }
 
