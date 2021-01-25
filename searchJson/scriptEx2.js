@@ -11,9 +11,13 @@ function InsertionSortWeight()
         let flagLabel = data[i].label;
         let j = i;
         iteration++;
-        while(j>0 && (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight && data[j-1].label > flagLabel) ))
+        while(j>0 && IsMinusOrEqualWeight(flag.weight, data[j-1].weight))
         {
             iteration++;
+            if (WeightIsEqual(data[j-1].weight, flag.weight) && LabelLeftIsMinusStrictLabelRight(flagLabel, data[j-1].label))
+            {
+                comparaison++;
+            }
             comparaison++;
             data[j] = data[j-1];
             j = j - 1;
@@ -41,8 +45,13 @@ function BubbleSortWeight()
             let labelJ = data[j].label;
             let labeljPlus1 = data[j+1].label;
 
-            if (data[j+1].weight < data[j].weight || (data[j+1].weight === data[j].weight && labeljPlus1 < labelJ))
+            if (IsMinusOrEqualWeight(data[j+1].weight, data[j].weight) )
             {
+                if( WeightIsEqual(data[j+1].weight, data[j].weight) && LabelLeftIsMinusStrictLabelRight(labeljPlus1, labelJ))
+
+                {
+                    comparaison++;
+                }
                 comparaison++;
                 Swap(data, data[j + 1], data[j])
             }
@@ -52,8 +61,6 @@ function BubbleSortWeight()
     console.log(data);
     console.log(`iteration: ${iteration} comparaison: ${comparaison}`);
 }
-
-
 
 
 function CocktailSortWeight()
@@ -73,11 +80,15 @@ function CocktailSortWeight()
             let valLabel = val.label;
             let dataJlabel = data[j].label;
             
-            if (val.weight < data[j].weight || (val.weight === data[j].weight && valLabel < dataJlabel))
+            if (IsMinusOrEqualWeight(val.weight, data[j].weight))
             {
+                if( WeightIsEqual(val.weight, data[j].weight) && LabelLeftIsMinusStrictLabelRight(valLabel, dataJlabel))
+                {
+                    comparaison = comparaison++;
+                }
                 comparaison++;
                 j--;
-                Swap(data, data[j + 1], data[j])
+                Swap(data, data[j + 1], data[j]);
             }
             else
             {
@@ -99,3 +110,38 @@ function Swap(data, leftIndex, rightIndex)
     data[rightIndex] = temp;
 }
 
+function IsMinusOrEqualWeight(weightLeft, weightRight)
+{
+    if(weightLeft <= weightRight)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+function WeightIsEqual(weightLeft, weightRight) 
+{
+    if(weightLeft === weightRight)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
+function LabelLeftIsMinusStrictLabelRight(labelLeft, labelRight)
+{
+    if(labelLeft < labelRight)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
