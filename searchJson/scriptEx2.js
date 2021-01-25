@@ -11,15 +11,19 @@ function InsertionSortWeight()
         let flagLabel = data[i].label;
         let j = i;
         iteration++;
-        while(j>0 && IsMinusOrEqualWeight(flag.weight, data[j-1].weight))
+        while(j>0 && IsMinusOrEqual(flag.weight, data[j-1].weight))
         {
             iteration++;
-            if (WeightIsEqual(data[j-1].weight, flag.weight) && LabelLeftIsMinusStrictLabelRight(flagLabel, data[j-1].label))
+            if(LeftIsMinusStrictRight(flag.weight , data[j-1].weight))
             {
                 comparaison++;
+                data[j] = data[j-1];
             }
-            comparaison++;
-            data[j] = data[j-1];
+            else if (IsEqual(data[j-1].weight, flag.weight) && LeftIsMinusStrictRight(flagLabel, data[j-1].label))
+            {
+                comparaison+=2;
+                data[j] = data[j-1];
+            }
             j = j - 1;
         }
         data[j] = flag;
@@ -44,16 +48,16 @@ function BubbleSortWeight()
             iteration++;
             let labelJ = data[j].label;
             let labeljPlus1 = data[j+1].label;
-
-            if (IsMinusOrEqualWeight(data[j+1].weight, data[j].weight) )
+       
+            if(LeftIsMinusStrictRight(data[j+1].weight, data[j].weight))
             {
-                if( WeightIsEqual(data[j+1].weight, data[j].weight) && LabelLeftIsMinusStrictLabelRight(labeljPlus1, labelJ))
-
-                {
-                    comparaison++;
-                }
                 comparaison++;
-                Swap(data, j + 1, j);
+                Swap(data, j+1, j);
+            }
+            else if(IsEqual(data[j+1].weight, data[j].weight) && LeftIsMinusStrictRight(labeljPlus1, labelJ))
+            {
+                comparaison+=2;
+                Swap(data, j+1, j);
             }
         }
     }
@@ -63,44 +67,6 @@ function BubbleSortWeight()
 }
 
 
-function CocktailSortWeight()
-{
-    TableSelected();
-    let iteration = 0;
-    let comparaison = 0;
-    
-    for (let i = 1; i < data.length; i++)
-    {
-        let val = data[i];
-        let flag = 0;
-        for (let j = i - 1; j >= 0 && flag != 1;)
-        {
-            iteration++;
-            
-            let valLabel = val.label;
-            let dataJlabel = data[j].label;
-            
-            if (IsMinusOrEqualWeight(val.weight, data[j].weight))
-            {
-                if( WeightIsEqual(val.weight, data[j].weight) && LabelLeftIsMinusStrictLabelRight(valLabel, dataJlabel))
-                {
-                    comparaison = comparaison++;
-                }
-                comparaison++;
-                j--;
-                Swap(data, j + 1, j);
-            }
-            else
-            {
-                flag = 1;
-            }
-        }
-        
-    }
-    
-    console.log(`iteration: ${iteration} comparaison: ${comparaison}`);
-    console.log(data);
-}
 
 function BubbleSortOptimize()
 {
@@ -115,9 +81,15 @@ function BubbleSortOptimize()
         for(let j = 0; j < i-1; j++)
         {
             iteration++;
-            if(data[j+1].weight < data[j].weight)
+            if(LeftIsMinusStrictRight(data[j+1].weight, data[j].weight))
             {
                 comparaison++;
+                Swap(data, j+1, j);
+                tableIsSort=false;
+            }
+            else if(IsEqual(data[j+1].weight, data[j].weight) && LeftIsMinusStrictRight(data[j+1].label, data[j].label))
+            {
+                comparaison+=2;
                 Swap(data, j+1, j);
                 tableIsSort=false;
             }
@@ -139,7 +111,7 @@ function Swap(data, leftIndex, rightIndex)
     data[rightIndex] = temp;
 }
 
-function IsMinusOrEqualWeight(weightLeft, weightRight)
+function IsMinusOrEqual(weightLeft, weightRight)
 {
     if(weightLeft <= weightRight)
     {
@@ -151,7 +123,7 @@ function IsMinusOrEqualWeight(weightLeft, weightRight)
     }
 }
 
-function WeightIsEqual(weightLeft, weightRight) 
+function IsEqual(weightLeft, weightRight) 
 {
     if(weightLeft === weightRight)
     {
@@ -163,9 +135,9 @@ function WeightIsEqual(weightLeft, weightRight)
     }
 
 }
-function LabelLeftIsMinusStrictLabelRight(labelLeft, labelRight)
+function LeftIsMinusStrictRight(left, right)
 {
-    if(labelLeft < labelRight)
+    if(left < right)
     {
         return true;
     }
