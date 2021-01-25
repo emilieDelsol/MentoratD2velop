@@ -53,7 +53,7 @@ function BubbleSortWeight()
                     comparaison++;
                 }
                 comparaison++;
-                Swap(data, data[j + 1], data[j])
+                Swap(data, j + 1, j);
             }
         }
     }
@@ -88,7 +88,7 @@ function CocktailSortWeight()
                 }
                 comparaison++;
                 j--;
-                Swap(data, data[j + 1], data[j]);
+                Swap(data, j + 1, j);
             }
             else
             {
@@ -98,6 +98,35 @@ function CocktailSortWeight()
         
     }
     
+    console.log(`iteration: ${iteration} comparaison: ${comparaison}`);
+    console.log(data);
+}
+
+function BubbleSortOptimize()
+{
+    TableSelected();
+    let iteration = 0;
+    let comparaison = 0;
+    let tableIsSort=true;
+    for(let i = data.length-1 ; i > 1; i--)
+    {
+        iteration++;
+        tableIsSort = true;
+        for(let j = 0; j < i-1; j++)
+        {
+            iteration++;
+            if(data[j+1].weight < data[j].weight)
+            {
+                comparaison++;
+                Swap(data, j+1, j);
+                tableIsSort=false;
+            }
+        }
+        if(tableIsSort)
+        {
+            break;
+        }
+    }
     console.log(`iteration: ${iteration} comparaison: ${comparaison}`);
     console.log(data);
 }
