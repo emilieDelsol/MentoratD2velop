@@ -45,7 +45,7 @@ function Partition(data, left, right)
         }
         if(left <= right)
         {
-            Swap(data, left, right);
+            SwapIF(data, left, right);
             left++;
             right--;
         }
@@ -53,11 +53,17 @@ function Partition(data, left, right)
     return left;
 }
 
-function Swap(data, leftIndex, rightIndex)
+
+function SwapIF(data, left, right)
 {
-    let temp = data[leftIndex];
-    data[leftIndex] = data[rightIndex];
-    data[rightIndex] = temp;
+    if(LeftIsMinusStrictRight(data[left].weight, data[right].weight))
+    {
+        comparaison++;
+        Swap(data, left, right);
+    }
+    else if(IsEqual(data[left].weight, data[right].weight) && LeftIsMinusStrictRight(data[left].label, data[right].label))
+    {
+        comparaison+=2;
+        Swap(data, left, right);
+    }
 }
-
-
