@@ -1,4 +1,3 @@
-
 function FastSortWeight()
 {
     TableSelected();
@@ -29,23 +28,21 @@ function QuickSort(data, left, right)
 function Partition(data, left, right)
 {
     let pivotWeight = data[Math.floor((right+left)/2)].weight;
-    dataLeftLabel = ConvertLabel(data[left].label);
-    dataRightLabel = ConvertLabel(data[right].label);
-    pivotLabel = ConvertLabel(data[Math.floor((right+left)/2)].label);
+    let pivotlabel = data[Math.floor((right+left)/2)].label;
 
     while(left <= right)
     {
-        while(data[left].weight < pivotWeight )
+        while(data[left].weight < pivotWeight || (data[left].weight===pivotWeight && data[left].label < pivotlabel) )
         {
             left++;
         }
-        while(data[right].weight > pivotWeight )
+        while(data[right].weight > pivotWeight || (data[right].weight===pivotWeight && data[right].label > pivotlabel))
         {
             right--;
         }
         if(left <= right)
         {
-            SwapIF(data, left, right);
+            Swap(data, left, right);
             left++;
             right--;
         }
@@ -54,16 +51,45 @@ function Partition(data, left, right)
 }
 
 
-function SwapIF(data, left, right)
+
+function Swap(data, leftIndex, rightIndex)
 {
-    if(LeftIsMinusStrictRight(data[left].weight, data[right].weight))
+    let temp = data[leftIndex];
+    data[leftIndex] = data[rightIndex];
+    data[rightIndex] = temp;
+}
+
+function IsEqual(left, right) 
+{
+    if(left === right)
     {
-        comparaison++;
-        Swap(data, left, right);
+        return true;
     }
-    else if(IsEqual(data[left].weight, data[right].weight) && LeftIsMinusStrictRight(data[left].label, data[right].label))
+    else
     {
-        comparaison+=2;
-        Swap(data, left, right);
+        return false;
+    }
+
+}
+function IsMinusStrictThan(left, right)
+{
+    if(left < right)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+function IsGreaterStrictThan(left, right)
+{
+    if(left > right)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }

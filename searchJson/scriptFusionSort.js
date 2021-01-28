@@ -1,11 +1,13 @@
 function FusionSort()
 {
+    
     TableSelected();
-    Sort(data, 0, data.length-1);
+    Sort(data, 0, data.length-1, );
     console.log(data);
+
 }
 
-function Merge(array, left, middle, right)
+function Merge(array, left, middle, right )
 {
 
   let n1 = middle - left + 1;
@@ -13,7 +15,6 @@ function Merge(array, left, middle, right)
 
   let leftArray = new Array(n1);
   let rightArray = new Array(n2);
-
   for(let i=0; i<n1; i++)
   {
     leftArray[i]=array[left+i];
@@ -22,17 +23,17 @@ function Merge(array, left, middle, right)
   {
     rightArray[j]=array[middle + 1 + j];
   }
-  let k= left;
   let i= 0;
   let j = 0;
+  let k= left;
   while(i<n1 && j<n2)
   {
-    if(leftArray[i].weight < rightArray[j].weight)
+    if(IsMinusStrictThan(leftArray[i].weight , rightArray[j].weight))
     {
       array[k]=leftArray[i];
       i++;
     }
-    else if(leftArray[i].weight === rightArray[j].weight && leftArray[i].label < rightArray[j].label)
+    else if(IsEqual(leftArray[i].weight, rightArray[j].weight) && IsMinusStrictThan(leftArray[i].label , rightArray[j].label))
     {
       array[k]=leftArray[i];
       i++;
@@ -64,12 +65,35 @@ function Sort(array, left, right)
   {
     let middle=Math.floor((left+right)/2);
 
-    Sort(array, left, middle);
-    Sort(array, middle+1, right);
+    Sort(array, left, middle );
+    Sort(array, middle+1, right );
 
-    Merge(array, left, middle, right);
+    Merge(array, left, middle, right );
   }
 
 }
 
 
+function IsEqual(weightLeft, weightRight) 
+{
+    if(weightLeft === weightRight)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
+function IsMinusStrictThan(left, right)
+{
+    if(left < right)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
