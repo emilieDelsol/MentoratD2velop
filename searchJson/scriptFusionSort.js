@@ -15,25 +15,27 @@ function merge(array, left, middle, right )
 
   let leftArray = new Array(n1);
   let rightArray = new Array(n2);
-  for(let i=0; i<n1; i++)
-  {
-    leftArray[i]=array[left+i];
-  }
-  for(let j=0; j<n2 ; j++)
-  {
-    rightArray[j]=array[middle + 1 + j];
-  }
+
+  partitionArray(array, leftArray, rightArray, n1, n2, left, middle);
+
+  compareArray(array, leftArray, rightArray, n1, n2, left);
+  
+
+}
+
+function  compareArray(array, leftArray, rightArray,n1, n2, left)
+{
   let i= 0;
   let j = 0;
   let k= left;
   while(i<n1 && j<n2)
   {
-    if(isMinusStrictThan(leftArray[i].weight , rightArray[j].weight))
+    if(leftArray[i].weight < rightArray[j].weight)
     {
       array[k]=leftArray[i];
       i++;
     }
-    else if(isEqual(leftArray[i].weight, rightArray[j].weight) && isMinusStrictThan(leftArray[i].label , rightArray[j].label))
+    else if(leftArray[i].weight === rightArray[j].weight && isMinusStrictThan(leftArray[i].label , rightArray[j].label))
     {
       array[k]=leftArray[i];
       i++;
@@ -59,6 +61,18 @@ function merge(array, left, middle, right )
   }
 
 }
+function partitionArray(array, leftArray, rightArray, n1, n2, left, middle)
+{
+  for(let i=0; i<n1; i++)
+  {
+    leftArray[i]=array[left+i];
+  }
+  for(let j=0; j<n2 ; j++)
+  {
+    rightArray[j]=array[middle + 1 + j];
+  }
+}
+
 function sort(array, left, right)
 {
   if(left<right)
