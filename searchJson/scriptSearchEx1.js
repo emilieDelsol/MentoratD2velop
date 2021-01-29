@@ -116,7 +116,7 @@ function TableSelected(){
     }
     else if(tableSelect === "50K")
     {
-        data = data1M;
+        data = data50K;
     }
     else
     {
