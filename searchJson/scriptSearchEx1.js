@@ -1,10 +1,10 @@
-function SearchLabel(){
+function searchLabel(){
     
     let searchLabel = document.getElementById('inputLabel').value;
     let resultSearchLabelId = document.getElementById('resultSearchLabelId');
     let index = 0;
     
-    TableSelected();
+    tableSelected();
     while(data[index].label !== searchLabel && index < data.length)
     {
         index++;
@@ -18,7 +18,7 @@ function SearchLabel(){
     }
 }
 
-function SearchNumberWeight() {
+function searchNumberWeight() {
 
     let searchNumber = parseInt(document.getElementById('inputNumber').value);
     let searchWeight = parseInt(document.getElementById('inputWeight').value);
@@ -26,7 +26,7 @@ function SearchNumberWeight() {
     let index=0;
     let flag=0;
     
-    TableSelected();
+    tableSelected();
     while(index < data.length && flag < searchNumber-1)
     {
         index++;
@@ -44,13 +44,13 @@ function SearchNumberWeight() {
     }
 }
 
-function SearchWeightLast(){
+function searchWeightLast(){
     
     let searchWeight = document.getElementById('inputWeightLast').value;
     let resultAllLabelsId = document.getElementById('resultAllLabelsId');
     let index=0;
     let flag;
-    TableSelected();
+    tableSelected();
     while(index < data.length)
     {
         if(data[index].weight == searchWeight)
@@ -68,13 +68,13 @@ function SearchWeightLast(){
     
 }
 
-function SearchAllLabel(){
+function searchAllLabel(){
     
     let searchAllLabel = document.getElementById('inputAllLabel').value;
     let resultSearchElementId = document.getElementById('resultSearchElementId');
     let arrayAllLabel = new Array();
     
-    TableSelected();
+    tableSelected();
     for(let element of data)
     {
         if(element.label === searchAllLabel)
@@ -89,12 +89,12 @@ function SearchAllLabel(){
     resultSearchElementId.textContent=`there is ${arrayAllLabel.length} values: ${JSON.stringify(arrayAllLabel)}`;
 }
 
-function SearchSelectElement(){
+function searchSelectElement(){
     
     let resultSearchElementId=document.getElementById('resultSearchElementId');
     let searchSelectElement = parseInt(document.getElementById('inputSelectElement').value);
     
-    TableSelected();
+    tableSelected();
     let searchElementResult=JSON.stringify(data[searchSelectElement]);
 
     console.log(`this is the ${searchSelectElement}e element: `);
@@ -102,7 +102,7 @@ function SearchSelectElement(){
     resultSearchElementId.textContent=`this is the ${searchSelectElement}e element: ${searchElementResult}`
 }
 
-function TableSelected(){
+function tableSelected(){
     
     let tableSelect = document.getElementById('tableSelect').value;
     

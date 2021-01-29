@@ -1,31 +1,31 @@
-function FastSortWeight()
+function fastSortWeight()
 {
-    TableSelected();
+    tableSelected();
     let left = 0;
     let right = data.length-1;
-    QuickSort(data,left,right);
+    quickSort(data,left,right);
     console.log(data);
 }
 
-function QuickSort(data, left, right)
+function quickSort(data, left, right)
 {
     if(data.length > 1)
     {
-        index = Partition(data, left, right);
+        index = partition(data, left, right);
         if(left < index-1)
         {
-            QuickSort(data, left, index-1);
+            quickSort(data, left, index-1);
         }
         if(index < right)
         {
-            QuickSort(data, index, right);
+            quickSort(data, index, right);
         }
     }
     
     return (data);
 }
 
-function Partition(data, left, right)
+function partition(data, left, right)
 {
     let pivotWeight = data[Math.floor((right+left)/2)].weight;
     let pivotlabel = data[Math.floor((right+left)/2)].label;
@@ -42,7 +42,7 @@ function Partition(data, left, right)
         }
         if(left <= right)
         {
-            Swap(data, left, right);
+            swap(data, left, right);
             left++;
             right--;
         }
@@ -52,14 +52,14 @@ function Partition(data, left, right)
 
 
 
-function Swap(data, leftIndex, rightIndex)
+function swap(data, leftIndex, rightIndex)
 {
     let temp = data[leftIndex];
     data[leftIndex] = data[rightIndex];
     data[rightIndex] = temp;
 }
 
-function IsEqual(left, right) 
+function isEqual(left, right) 
 {
     if(left === right)
     {
@@ -71,7 +71,7 @@ function IsEqual(left, right)
     }
 
 }
-function IsMinusStrictThan(left, right)
+function isMinusStrictThan(left, right)
 {
     if(left < right)
     {
@@ -82,7 +82,7 @@ function IsMinusStrictThan(left, right)
         return false;
     }
 }
-function IsGreaterStrictThan(left, right)
+function isGreaterStrictThan(left, right)
 {
     if(left > right)
     {

@@ -3,31 +3,31 @@ console.log("\n\n**********************************" +
 "\n**********************************");
 let tableToSortInsertion = [ 99, 10, 50, 520, 30, 5, 9, 4, 1, 0 ];
 console.log("first sort: ");
-InsertionSort(tableToSortInsertion);
+insertionSort(tableToSortInsertion);
 console.log("second sort: ");
-InsertionSort(tableToSortInsertion);
+insertionSort(tableToSortInsertion);
 
 console.log("\n**********************************" +
 "\nThe BUBBLE SORT:" +
 "\n**********************************");
 let tableToSortBubble = [ 99, 10, 50, 520, 30, 5, 9, 4, 1, 0 ];
 console.log("first sort: ");
-BubbleSort(tableToSortBubble);
+bubbleSort(tableToSortBubble);
 console.log("second sort: ");
-BubbleSort(tableToSortBubble);
+bubbleSort(tableToSortBubble);
 
 console.log("\n**********************************" +
 "\nThe COCKTAIL SORT:" +
 "\n**********************************");
 let tableToSortCoktail = [ 99, 10, 50, 520, 30, 5, 9, 4, 1, 0 ];
 console.log("first sort: ");
-CocktailSort(tableToSortCoktail);
+cocktailSort(tableToSortCoktail);
 console.log("second sort: ");
-CocktailSort(tableToSortCoktail);
+cocktailSort(tableToSortCoktail);
 
 
 
-function InsertionSort(table)
+function insertionSort(table)
 {
     let iteration = 0;
     let comparaison = 0;
@@ -48,7 +48,7 @@ function InsertionSort(table)
     return table;
 }
 
-function BubbleSort(integerTable)
+function bubbleSort(integerTable)
 {
     let iteration = 0;
     let comparaison = 0;
@@ -73,7 +73,7 @@ function BubbleSort(integerTable)
     return integerTable;
 }
 
-function CocktailSort(integerTable)
+function cocktailSort(integerTable)
 {
     let iteration = 0;
     let comparaison = 0;
