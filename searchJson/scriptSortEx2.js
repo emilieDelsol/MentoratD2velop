@@ -8,22 +8,17 @@ function insertionSortWeight()
     for(let i = 0; i < data.length; i++)
     {
         let flag = data[i];
-        let flagLabel = data[i].label;
         let j = i;
         iteration++;
         while(j>0 && isMinusOrEqual(flag.weight, data[j-1].weight))
         {
             iteration++;
-            if(isMinusStrictThan(flag.weight , data[j-1].weight))
+            if(isSuperior(data, j, flag))
             {
                 comparaison++;
                 data[j] = data[j-1];
             }
-            else if (isEqual(data[j-1].weight, flag.weight) && isMinusStrictThan(flagLabel, data[j-1].label))
-            {
-                comparaison+=2;
-                data[j] = data[j-1];
-            }
+           
             j = j - 1;
         }
         data[j] = flag;
@@ -46,17 +41,9 @@ function bubbleSortWeight()
         for (let j = 0 ; j < i-1; j++)
         {
             iteration++;
-            let labelJ = data[j].label;
-            let labeljPlus1 = data[j+1].label;
-       
-            if(isMinusStrictThan(data[j+1].weight, data[j].weight))
+            if(islowerThan(data, j))
             {
-                comparaison++;
-                swap(data, j+1, j);
-            }
-            else if(isEqual(data[j+1].weight, data[j].weight) && isMinusStrictThan(labeljPlus1, labelJ))
-            {
-                comparaison+=2;
+                comparaison ++;
                 swap(data, j+1, j);
             }
         }
@@ -74,22 +61,18 @@ function bubbleSortOptimize()
     let iteration = 0;
     let comparaison = 0;
     let tableIsSort=true;
+
     for(let i = data.length-1 ; i > 1; i--)
     {
         iteration++;
         tableIsSort = true;
+
         for(let j = 0; j < i-1; j++)
         {
             iteration++;
-            if(isMinusStrictThan(data[j+1].weight, data[j].weight))
+            if(islowerThan(data, j))
             {
                 comparaison++;
-                swap(data, j+1, j);
-                tableIsSort=false;
-            }
-            else if(isEqual(data[j+1].weight, data[j].weight) && isMinusStrictThan(data[j+1].label, data[j].label))
-            {
-                comparaison+=2;
                 swap(data, j+1, j);
                 tableIsSort=false;
             }
@@ -117,12 +100,12 @@ function isMinusOrEqual(weightLeft, weightRight)
     
 }
 
-function isEqual(weightLeft, weightRight) 
+function islowerThan(data, j)
 {
-   return weightLeft === weightRight;
+    return (data[j+1].weight < data[j].weight || (data[j+1].weight === data[j].weight) && (data[j+1].label < data[j].label));
 }
-function isMinusStrictThan(left, right)
+
+function isSuperior(data, j, flag)
 {
-    return left < right;
+    return (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight) && (data[j-1].label >= flag.label));
 }
-    
