@@ -113,36 +113,14 @@ function swap(data, leftIndex, rightIndex)
 
 function isMinusOrEqual(weightLeft, weightRight)
 {
-    if(weightLeft <= weightRight)
-    {
-        return true;
-    }
-    else 
-    {
-        return false;
-    }
+    return weightLeft <= weightRight;
 }
-
 function isEqual(weightLeft, weightRight) 
 {
-    if(weightLeft === weightRight)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-
+   return weightLeft === weightRight;
 }
 function isMinusStrictThan(left, right)
 {
-    if(left < right)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return left < right;
 }
+    
