@@ -114,7 +114,9 @@ function swap(data, leftIndex, rightIndex)
 function isMinusOrEqual(weightLeft, weightRight)
 {
     return weightLeft <= weightRight;
+    
 }
+
 function isEqual(weightLeft, weightRight) 
 {
    return weightLeft === weightRight;
