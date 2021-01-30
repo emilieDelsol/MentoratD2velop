@@ -5,10 +5,9 @@ function fusionSort()
     console.log(data);
 }
 
-
 function sort(array, leftIndex, rightIndex )
 {
-  if(leftIndex< rightIndex)
+  if(leftIndex < rightIndex)
   {
     let middle=Math.floor((leftIndex + rightIndex )/2);
 
@@ -19,6 +18,7 @@ function sort(array, leftIndex, rightIndex )
   }
 
 }
+
 function merge(array, leftIndex, middle, rightIndex )
 {
   let n1 = middle - leftIndex+ 1;
@@ -52,7 +52,7 @@ function compareArray(array, leftArray, rightArray, leftIndex)
   let j = 0;
   let k= leftIndex;
 
-  while(indexesLower(i, leftArray, j, rightArray))
+  while(indexesLower(i, leftArray.length, j, rightArray.length))
   {
     if(islower(leftArray[i], rightArray[j]))
     {
@@ -82,13 +82,13 @@ function compareArray(array, leftArray, rightArray, leftIndex)
 }
 
 
-
-function indexesLower(i, leftArray, j, rightArray)
+function indexesLower(i, leftArrayLength, j, rightArrayLength)
 {
-  return i < leftArray.length && j < rightArray.length;
+  return i < leftArrayLength && j < rightArrayLength;
 }
 
-function islower(leftArray, rightArray)
+
+function islower(leftArrayElement, rightArrayElement)
  {
-    return (leftArray.weight < rightArray.weight) || (leftArray.weight === rightArray.weight && leftArray.label < rightArray.label);
+    return (leftArrayElement.weight < rightArrayElement.weight) || (leftArrayElement.weight === rightArrayElement.weight && leftArrayElement.label < rightArrayElement.label);
  }
