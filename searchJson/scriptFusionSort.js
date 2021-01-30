@@ -45,40 +45,35 @@ function partitionArray(array, leftArray, rightArray, left, middle)
 }
 
 
-function  compareArray(array, leftArray, rightArray, left)
+function compareArray(array, leftArray, rightArray, left)
 {
   let i= 0;
   let j = 0;
   let k= left;
 
-  while(indexesMinusThanTablesLenght(i, leftArray, j, rightArray))
+  while(indexesLower(i, leftArray, j, rightArray))
   {
-    if(weightLeftisMinusStrictThanWeightRight(leftArray[i], rightArray[j]))
+    if(islower(leftArray, rightArray))
     {
-      array[k]=leftArray[i];
-      i++;
-    }
-    else if(isWeightEqualAndLabelLeftMinusStrictThanLabelRight(leftArray, rightArray, i, j))
-    {
-      array[k]=leftArray[i];
+      array[k] = leftArray[i];
       i++;
     }
     else
     {
-      array[k]=rightArray[j];
+      array[k] = rightArray[j];
       j++;
     }
     k++;
   }
-  while(i<leftArray.length)
+  while(i < leftArray.length)
   {
-    array[k]=leftArray[i];
+    array[k] = leftArray[i];
     i++;
     k++;
   }
-  while(j<rightArray.length)
+  while(j < rightArray.length)
   {
-    array[k]=rightArray[j];
+    array[k] = rightArray[j];
     j++;
     k++;
   }
@@ -86,17 +81,13 @@ function  compareArray(array, leftArray, rightArray, left)
 }
 
 
-function isWeightEqualAndLabelLeftMinusStrictThanLabelRight(leftArray, rightArray, i, j)
+
+function indexesLower(i, leftArray, j, rightArray)
 {
-  return (leftArray[i].weight === rightArray[j].weight && leftArray[i].label < rightArray[j].label);
+  return i < leftArray.length && j < rightArray.length;
 }
 
-function indexesMinusThanTablesLenght(i, leftArray, j, rightArray)
-{
-  return i < leftArray.length && j < rightArray.length
-}
-
-function weightLeftisMinusStrictThanWeightRight(leftArray, rightArray)
-{
-  return leftArray.weight < rightArray.weight
-}
+function islower(leftArray, rightArray)
+ {
+    return (leftArray.weight < rightArray.weight) || (leftArray[i].weight === rightArray[j].weight && leftArray[i].label < rightArray[j].label);
+ }
