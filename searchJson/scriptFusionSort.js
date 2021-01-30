@@ -6,37 +6,37 @@ function fusionSort()
 }
 
 
-function sort(array, left, right)
+function sort(array, leftIndex, rightIndex )
 {
-  if(left < right)
+  if(leftIndex< rightIndex)
   {
-    let middle=Math.floor((left+right)/2);
+    let middle=Math.floor((leftIndex + rightIndex )/2);
 
-    sort(array, left, middle );
-    sort(array, middle+1, right );
+    sort(array, leftIndex, middle );
+    sort(array, middle+1, rightIndex );
 
-    merge(array, left, middle, right );
+    merge(array, leftIndex, middle, rightIndex );
   }
 
 }
-function merge(array, left, middle, right )
+function merge(array, leftIndex, middle, rightIndex )
 {
-  let n1 = middle - left + 1;
-  let n2 = right - middle;
+  let n1 = middle - leftIndex+ 1;
+  let n2 = rightIndex - middle;
   let leftArray = new Array(n1);
   let rightArray = new Array(n2);
 
-  partitionArray(array, leftArray, rightArray, left, middle);
+  partitionArray(array, leftArray, rightArray, leftIndex, middle);
 
-  compareArray(array, leftArray, rightArray, left);
+  compareArray(array, leftArray, rightArray, leftIndex);
 }
 
 
-function partitionArray(array, leftArray, rightArray, left, middle)
+function partitionArray(array, leftArray, rightArray, leftIndex, middle)
 {
   for(let i = 0; i < leftArray.length; i++)
   {
-    leftArray[i] = array[left+i];
+    leftArray[i] = array[leftIndex+i];
   }
 
   for(let j = 0; j < rightArray.length ; j++)
@@ -46,11 +46,11 @@ function partitionArray(array, leftArray, rightArray, left, middle)
 }
 
 
-function compareArray(array, leftArray, rightArray, left)
+function compareArray(array, leftArray, rightArray, leftIndex)
 {
   let i= 0;
   let j = 0;
-  let k= left;
+  let k= leftIndex;
 
   while(indexesLower(i, leftArray, j, rightArray))
   {
