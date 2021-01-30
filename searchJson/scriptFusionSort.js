@@ -36,8 +36,9 @@ function partitionArray(array, leftArray, rightArray, left, middle)
 {
   for(let i = 0; i < leftArray.length; i++)
   {
-    leftArray[i]=array[left+i];
+    leftArray[i] = array[left+i];
   }
+
   for(let j = 0; j < rightArray.length ; j++)
   {
     rightArray[j] = array[middle + 1 + j];
@@ -53,7 +54,7 @@ function compareArray(array, leftArray, rightArray, left)
 
   while(indexesLower(i, leftArray, j, rightArray))
   {
-    if(islower(leftArray, rightArray))
+    if(islower(leftArray[i], rightArray[j]))
     {
       array[k] = leftArray[i];
       i++;
@@ -89,5 +90,5 @@ function indexesLower(i, leftArray, j, rightArray)
 
 function islower(leftArray, rightArray)
  {
-    return (leftArray.weight < rightArray.weight) || (leftArray[i].weight === rightArray[j].weight && leftArray[i].label < rightArray[j].label);
+    return (leftArray.weight < rightArray.weight) || (leftArray.weight === rightArray.weight && leftArray.label < rightArray.label);
  }
