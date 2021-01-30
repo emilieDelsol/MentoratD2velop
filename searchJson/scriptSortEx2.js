@@ -10,10 +10,10 @@ function insertionSortWeight()
         let flag = data[i];
         let j = i;
         iteration++;
-        while(j>0 && isMinusOrEqual(flag.weight, data[j-1].weight))
+        while(j>0 && flag.weight <= data[j-1].weight)
         {
             iteration++;
-            if(isSuperior(data, j, flag))
+            if(isSuperior(data[j-1], flag))
             {
                 comparaison++;
                 data[j] = data[j-1];
@@ -41,7 +41,7 @@ function bubbleSortWeight()
         for (let j = 0 ; j < i-1; j++)
         {
             iteration++;
-            if(islowerThan(data, j))
+            if(islower(data[j+1], data[j]))
             {
                 comparaison ++;
                 swap(data, j+1, j);
@@ -70,7 +70,7 @@ function bubbleSortOptimize()
         for(let j = 0; j < i-1; j++)
         {
             iteration++;
-            if(islowerThan(data, j))
+            if(islower(data[j+1], data[j]))
             {
                 comparaison++;
                 swap(data, j+1, j);
@@ -94,18 +94,14 @@ function swap(data, leftIndex, rightIndex)
     data[rightIndex] = temp;
 }
 
-function isMinusOrEqual(weightLeft, weightRight)
+function isMinusOrEqual(flag, dataElement)
 {
-    return weightLeft <= weightRight;
+    return flag <= dataElement;
     
 }
 
-function islowerThan(data, j)
-{
-    return (data[j+1].weight < data[j].weight || (data[j+1].weight === data[j].weight) && (data[j+1].label < data[j].label));
-}
 
-function isSuperior(data, j, flag)
+function isSuperior(dataElement, flag)
 {
-    return (data[j-1].weight > flag.weight || (data[j-1].weight === flag.weight) && (data[j-1].label >= flag.label));
+    return (dataElement.weight > flag.weight || (dataElement.weight === flag.weight) && (dataElement.label >= flag.label));
 }
