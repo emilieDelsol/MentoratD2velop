@@ -114,6 +114,29 @@
           <button type="button" id="button" onclick="fusionSort()">Fusion sort</button>
         </td>
       </tr>
+      <tr>
+        <th scope="row">11</th>
+        <td>
+          weight: <input type="number" id="weightId" />
+        </td>
+        <td>
+          label <input type="text" id="labelId"/>
+        </td>
+        <td>
+          <button type="button" id="buttonAddStart" onclick="addAtStartTable()">Add at start table</button>
+          <button type="button" id="buttonAddEnd" onclick="addAtEndTable()">Add at end table</button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">12</th>
+        <td>
+          Choose an id: <input type="number" id="chooseId"/>
+        </td>
+        <td></td>
+        <td>
+          <button type="button" id="buttonAddAtId" onclick="addAtChooseId()">Add at choose id. </button>
+        </td>
+      </tr>
     </tbody>
   </table>
   <section>
@@ -132,7 +155,8 @@
     <div>
       <p id="resultSearchElementId"></p>
     </div>
-    <div></div>
+    <div>
+    </div>
   </section>
 
     <script type="text/javascript" src="1K.js"></script>
@@ -143,5 +167,6 @@
     <script type="text/javascript" src="QuickSort.js"></script>
     <script type="text/javascript" src="scriptSortIntegerTable.js"></script>
     <script type="text/javascript" src="scriptFusionSort.js"></script>
+    <script type="text/javascript" src="scriptEx3.js"></script>
 </body>
 </html>
