@@ -30,7 +30,7 @@ function addElementAtStartTable()
     let newEndId = data.length;
     let i=0;
 
-    for(i=newEndId; i>=0; i--)
+    for(i=newEndId-1; i>0; i--)
     {
         data[i+1]=data[i];
     }
@@ -47,7 +47,7 @@ function addElementEndTable()
     let newEndId = data.length;
     let i=0;
 
-    for(i=newEndId; i>=endIndex+1; i--)
+    for(i=newEndId-1; i>=endIndex+1; i--)
     {
         data[i+1]= data[i];
     }
