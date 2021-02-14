@@ -4,106 +4,53 @@ using System.Text;
 
 namespace ChainList
 {
-	class ChainList
+	public class ChainList
 	{
-		private ElementList _start;
+		public ElementList Start { get; set; }
 
 		public Boolean IsEmpty() 
 		{ 
-			return _start == null; 
+			return Start == null; 
 		}
-		public ElementList GetStart() 
-		{ 
-			return _start; 
-		}
-		public void AddStart(int value, String label) 
-		{ 
-			ElementList oldFirst = _start; 
-			_start = new ElementList(value,label, oldFirst); 
-		}
-		
+
 		public int GetLength()
 		{
 			int length = 0;
-			ElementList flag = GetStart();
+			ElementList flag = Start;
 
 			while (flag != null)
 			{
 				length++;
-				flag = flag.GetNext();
+				flag = flag.next;
 			}
 
 			return length;
 		}
 
-		public Boolean Contain(int value)
-		{
-			Boolean isFound = false;
-			ElementList flag = GetStart();
-
-			while(! isFound && flag!=null)
-			{
-				if(flag.GetValue()==value)
-				{
-					isFound = true;
-				}
-				else
-				{
-					flag = flag.GetNext();
-				}
-			}
-
-			return isFound;
-		}
-
-		public void AddEnd(int value, String label)
+		public void Add(int weight, String label)
 		{
 			if(IsEmpty())
 			{
-				_start = new ElementList(value, label);
+				Start = new ElementList(weight, label, null);
 			}
 			else
 			{
 				ElementList latest = GetLatestElement();
-				latest.SetNext(new ElementList (value, label));
+				latest.next = new ElementList (weight, label, null);
 			}
 		}
 
-		private ElementList GetLatestElement()
+		public  ElementList GetLatestElement()
 		{
-			ElementList latest = _start;
-			while (latest.GetNext() != null)
+			ElementList latest = Start;
+			while (latest.next != null)
 			{
-				latest = latest.GetNext();
+				latest = latest.next;
 			}
 			return latest;
 		}
 
+	
 
-		public void DeleteFirstOccurence(int value)
-		{
-			if(IsEmpty())
-			{
-				return;
-			}
-			if(_start.GetValue()==value)
-			{
-				_start = _start.GetNext();
-			}
-			else
-			{
-				ElementList previous = _start;
-				ElementList flag = _start.GetNext();
-				while (flag != null)
-				{
-					previous = flag;
-					flag = flag.GetNext();
-				}
-				if(flag!=null)
-				{
-					previous.SetNext(flag.GetNext());
-				}
-			}
-		}
 	}
 }
