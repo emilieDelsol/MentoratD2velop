@@ -26,17 +26,21 @@ namespace ChainList
 		{
 			int length = 0;
 			ElementList flag = GetStart();
+
 			while (flag != null)
 			{
 				length++;
 				flag = flag.GetNext();
 			}
+
 			return length;
 		}
+
 		public Boolean Contain(int value)
 		{
 			Boolean isFound = false;
 			ElementList flag = GetStart();
+
 			while(! isFound && flag!=null)
 			{
 				if(flag.GetValue()==value)
@@ -48,6 +52,7 @@ namespace ChainList
 					flag = flag.GetNext();
 				}
 			}
+
 			return isFound;
 		}
 
