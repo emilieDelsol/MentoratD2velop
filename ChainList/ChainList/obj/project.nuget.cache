@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "31g8lFwuSmauRhJqknCZviawk78irQDVX2JaVRTeN0iTK/zwaDWq1HyaQ5RvDc8vHRObPMm71zcU2kBnNFzcsA==",
+  "dgSpecHash": "GjYL6W5bD7sfVWYmdDK7nhUg3W6S8K7f909vTiOmop/tZSzMzXQf0L7msGL8ctzXJoUn3uJxPH+nS2FBUw8GVQ==",
   "success": true,
   "projectFilePath": "D:\\Documents\\exercicesMentorat\\ChainList\\ChainList\\ChainList.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\MilhieWin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
