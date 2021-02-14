@@ -6,33 +6,27 @@ namespace ChainList
 {
 	class ElementList
 	{
-		private int _value;
+		private Int32 _weight;
 		private String _label;
 		private ElementList _next;
-		public ElementList(int value, String label, ElementList next)
+		public ElementList(Int32 weight, String label, ElementList next)
 		{
-			_value = value;
+			_weight = weight;
 			_label = label;
 			_next = next;
 		}
-		public ElementList(int value, String label)
-		{
-			_value = value;
-			_label = label;
-			_next = null;
-		}
 
-		public int GetValue() 
+		public Int32 Getweight() 
 		{ 
-			return _value; 
+			return _weight; 
 		}
 		public String GetLabel() 
 		{ 
 			return _label; 
 		}
-		public void SetValue(int value)
+		public void Setweight(Int32 weight)
 		{
-			_value = value;
+			_weight = weight;
 		}
 		public void SetLabel(String label)
 		{
