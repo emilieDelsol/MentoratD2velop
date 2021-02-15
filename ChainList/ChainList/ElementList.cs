@@ -5,18 +5,37 @@ namespace ChainList
 {
 	public class ElementList
 	{
-		public Int32 weight {get; private set; }
+		private Int32 _weight {get; set; }
 
-		public String label { get; private set; }
+		private String _label { get;  set; }
 		
 		public ElementList next;
 
 		public ElementList(int weightEntry, String labelEntry, ElementList nextEntry)
 		{
-			weight = weightEntry;
-			label = labelEntry;
+			_weight = weightEntry;
+			_label = labelEntry;
 			next = nextEntry;
 		}
 
+		internal bool IsDifferent(string labelSearch)
+		{
+			return _label != labelSearch;
+		}
+
+		internal bool IsEqual( string labelSearch)
+		{
+			return _label == labelSearch;
+		}
+
+		internal object GetElementToString()
+		{
+			return $"label: {_label}, weight: {_weight}";
+		}
+
+		internal bool LabelNotNull()
+		{
+			return _label!=null;
+		}
 	}
 }

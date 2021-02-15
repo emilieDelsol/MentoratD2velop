@@ -9,7 +9,6 @@ namespace ChainList
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
 
 			string path = SelectArray();
 
@@ -26,24 +25,27 @@ namespace ChainList
 			
 			Console.WriteLine($"The chainList length is  {chainList.GetLength()}");
 			
-			searchLabel(chainList);
+			SearchLabel(chainList);
 		}
 
-		private static void searchLabel(ChainList chainList)
+
+		//rechercher un élément dans le tableau à partir du label: 
+		private static void SearchLabel(ChainList chainList)
 		{
 			Console.WriteLine("Enter Label you search:");
 			string labelSearch = Console.ReadLine();
 			ElementList start = chainList.Start;
 			int number = 0;
-			if(start.label==labelSearch)
+
+			if(start.IsEqual(labelSearch))
 			{
-				Console.WriteLine($"The first label = {labelSearch} is: number {number}:  {start.weight} {start.label} ");
+				Console.WriteLine($"The first label = {labelSearch} is: number {number}:  {start.GetElementToString()} ");
 			}
 			else
 			{
 				ElementList previous = chainList.Start;
 				ElementList flag = chainList.Start.next;
-				while(flag.label!=labelSearch || flag.label!=null)
+				while(flag.IsDifferent(labelSearch) || flag.LabelNotNull())
 				{
 					previous=flag;
 					flag = flag.next;
@@ -51,12 +53,14 @@ namespace ChainList
 				}
 				if(flag!=null)
 				{
-					Console.WriteLine($"The first label = {labelSearch} is: number {number}:  {start.weight} {start.label} ");
+					Console.WriteLine($"The first label = {labelSearch} is: number {number}:  {start.GetElementToString()} ");
 				}
 
 			}
 
 		}
+
+		
 
 		private static string SelectArray()
 		{
