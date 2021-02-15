@@ -43,15 +43,15 @@ namespace ChainList
 			}
 			else
 			{
-				ElementList previous = chainList.Start;
-				ElementList flag = chainList.Start.next;
-				while(flag.IsDifferent(labelSearch) || flag.LabelNotNull())
+				ElementList previousElement = chainList.Start;
+				ElementList currentElement = chainList.Start.next;
+				while(currentElement.IsDifferent(labelSearch) || currentElement.LabelNotNull())
 				{
-					previous=flag;
-					flag = flag.next;
+					previousElement=currentElement;
+					currentElement = currentElement.next;
 					number++;
 				}
-				if(flag!=null)
+				if(currentElement!=null)
 				{
 					Console.WriteLine($"The first label = {labelSearch} is: number {number}:  {start.GetElementToString()} ");
 				}
