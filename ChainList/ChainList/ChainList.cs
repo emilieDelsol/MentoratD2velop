@@ -6,17 +6,28 @@ namespace ChainList
 {
 	public class ChainList
 	{
-		public ElementList Start { get; set; }
-
+		public ElementList Head { get; private set; }
+		public ElementList Tail
+		{
+			get
+			{
+				ElementList latest = Head;
+				while (latest.next != null)
+				{
+					latest = latest.next;
+				}
+				return latest;
+			}
+		}
 		public Boolean IsEmpty() 
 		{ 
-			return Start == null; 
+			return Head == null; 
 		}
 
 		public int GetLength()
 		{
 			int length = 0;
-			ElementList flag = Start;
+			ElementList flag = Head;
 
 			while (flag != null)
 			{
@@ -31,24 +42,15 @@ namespace ChainList
 		{
 			if(IsEmpty())
 			{
-				Start = new ElementList(weight, label, null);
+				Head = new ElementList(weight, label, null);
 			}
 			else
 			{
-				ElementList latest = GetLatestElement();
+				ElementList latest = Tail;
 				latest.next = new ElementList (weight, label, null);
 			}
 		}
 
-		public  ElementList GetLatestElement()
-		{
-			ElementList latest = Start;
-			while (latest.next != null)
-			{
-				latest = latest.next;
-			}
-			return latest;
-		}
 
 	
 
