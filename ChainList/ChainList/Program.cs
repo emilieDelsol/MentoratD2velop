@@ -34,7 +34,7 @@ namespace ChainList
 		{
 			Console.WriteLine("Enter Label you search:");
 			string labelSearch = Console.ReadLine();
-			ElementList start = chainList.Start;
+			ElementList start = chainList.Head;
 			int number = 0;
 
 			if(start.IsEqual(labelSearch))
@@ -43,8 +43,8 @@ namespace ChainList
 			}
 			else
 			{
-				ElementList previousElement = chainList.Start;
-				ElementList currentElement = chainList.Start.next;
+				ElementList previousElement = chainList.Head;
+				ElementList currentElement = chainList.Head.next;
 				while(currentElement.IsDifferent(labelSearch) || currentElement.LabelNotNull())
 				{
 					previousElement=currentElement;

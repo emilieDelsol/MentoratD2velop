@@ -35,7 +35,7 @@ namespace ChainList
 
 		internal bool LabelNotNull()
 		{
-			return _label!=null;
+			return _label != null;
 		}
 	}
 }
