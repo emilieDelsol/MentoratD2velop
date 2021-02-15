@@ -9,13 +9,13 @@ namespace ChainList
 
 		private String _label { get;  set; }
 		
-		public ElementList next;
+		public ElementList Next;
 
 		public ElementList(int weightEntry, String labelEntry, ElementList nextEntry)
 		{
 			_weight = weightEntry;
 			_label = labelEntry;
-			next = nextEntry;
+			Next = nextEntry;
 		}
 
 		internal bool IsDifferent(string labelSearch)

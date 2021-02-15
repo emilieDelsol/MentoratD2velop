@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace ChainList
 {
@@ -18,12 +19,17 @@ namespace ChainList
 			List<WeightLabel> weighLabels = JsonConvert.DeserializeObject<List<WeightLabel>>(json);
 			
 			ChainList chainList = new ChainList();
-			foreach(WeightLabel element in weighLabels)
+			for(int i= weighLabels.Count()-1; i>=0; i--)
 			{
-				chainList.Add(element.weight, element.label);
+				chainList.Add(weighLabels[i].weight, weighLabels[i].label);
 			}
 			
 			Console.WriteLine($"The chainList length is  {chainList.GetLength()}");
+			Console.WriteLine($"Head next =  {chainList.Head.Next.GetElementToString()}");
+			Console.WriteLine($"Head next next =  {chainList.Head.Next.Next.GetElementToString()}");
+			Console.WriteLine($"Head next next next =  {chainList.Head.Next.Next.Next.GetElementToString()}");
+			Console.WriteLine($"Tail =  {chainList.Tail.GetElementToString()}");
+
 			
 			SearchLabel(chainList);
 		}
@@ -44,16 +50,21 @@ namespace ChainList
 			else
 			{
 				ElementList previousElement = chainList.Head;
-				ElementList currentElement = chainList.Head.next;
-				while(currentElement.IsDifferent(labelSearch) || currentElement.LabelNotNull())
+				ElementList currentElement = chainList.Head.Next;
+				while(currentElement.IsDifferent(labelSearch) || currentElement.Next ==null  )
 				{
 					previousElement=currentElement;
-					currentElement = currentElement.next;
+					currentElement = currentElement.Next;
 					number++;
 				}
 				if(currentElement!=null)
 				{
 					Console.WriteLine($"The first label = {labelSearch} is: number {number}:  {start.GetElementToString()} ");
+				}
+				else
+				{
+					Console.WriteLine($"List don't contain  label = {labelSearch} ");
+
 				}
 
 			}
@@ -69,15 +80,15 @@ namespace ChainList
 
 			if (userChoice == "1")
 			{
-				return @"D:\Documents\exercicesMentorat\arraySearch\arraySearch\1K.json";
+				return @"../../../1K.json";
 			}
 			else if (userChoice == "2")
 			{
-				return @"D:\Documents\exercicesMentorat\arraySearch\arraySearch\1M.json";
+				return @"../../../1M.json";
 			}
 			else if (userChoice == "3")
 			{
-				return @"D:\Documents\exercicesMentorat\arraySearch\arraySearch\50K.json";
+				return @"../../../50K.json";
 			}
 			throw new NotImplementedException();
 		}

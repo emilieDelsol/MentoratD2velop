@@ -6,19 +6,14 @@ namespace ChainList
 {
 	public class ChainList
 	{
-		public ElementList Head { get; private set; }
+		public ElementList Head;
 		public ElementList Tail
 		{
-			get
-			{
-				ElementList latest = Head;
-				while (latest.next != null)
-				{
-					latest = latest.next;
-				}
-				return latest;
-			}
+			get; set;
 		}
+		private ElementList _first { get; set; }
+
+		public readonly int ListLenght;
 		public Boolean IsEmpty() 
 		{ 
 			return Head == null; 
@@ -27,12 +22,12 @@ namespace ChainList
 		public int GetLength()
 		{
 			int length = 0;
-			ElementList flag = Head;
+			ElementList currentElement = Head;
 
-			while (flag != null)
+			while (currentElement != null)
 			{
 				length++;
-				flag = flag.next;
+				currentElement = currentElement.Next;
 			}
 
 			return length;
@@ -42,17 +37,31 @@ namespace ChainList
 		{
 			if(IsEmpty())
 			{
-				Head = new ElementList(weight, label, null);
+				Tail = new ElementList(weight, label, null);
+				Head = Tail;
 			}
 			else
 			{
-				ElementList latest = Tail;
-				latest.next = new ElementList (weight, label, null);
+				InsertHeadElement(Head,weight, label );
 			}
 		}
 
+		private void InsertHeadElement(ElementList head, int weight, string label)
+		{
+			ElementList newElement = new ElementList(weight, label, null);
+			newElement.Next = head;
+			head = newElement;
+			Head = head;
+		}
 
-	
-
+		private ElementList GetLatest()
+		{
+			ElementList latest = Head;
+			while (latest.Next != null)
+			{
+				latest = latest.Next;
+			}
+			return latest;
+		}
 	}
 }
