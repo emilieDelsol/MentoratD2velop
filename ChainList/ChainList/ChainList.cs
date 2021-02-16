@@ -61,14 +61,5 @@ namespace ChainListProgram
 			throw new NotImplementedException();
 		}
 
-		private ElementList GetLatest()
-		{
-			ElementList latest = Head;
-			while (latest.Next != null)
-			{
-				latest = latest.Next;
-			}
-			return latest;
-		}
 	}
 }
