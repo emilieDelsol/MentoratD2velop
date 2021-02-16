@@ -23,11 +23,10 @@ namespace ChainList
 			{
 				chainList.Add(weighLabels[i].weight, weighLabels[i].label);
 			}
-			
+
+			Console.WriteLine($"The chainList length is {chainList.ListLenght}");
 			Console.WriteLine($"The chainList length is  {chainList.GetLength()}");
 			Console.WriteLine($"Head next =  {chainList.Head.Next.GetElementToString()}");
-			Console.WriteLine($"Head next next =  {chainList.Head.Next.Next.GetElementToString()}");
-			Console.WriteLine($"Head next next next =  {chainList.Head.Next.Next.Next.GetElementToString()}");
 			Console.WriteLine($"Tail =  {chainList.Tail.GetElementToString()}");
 
 			
@@ -49,11 +48,9 @@ namespace ChainList
 			}
 			else
 			{
-				ElementList previousElement = chainList.Head;
 				ElementList currentElement = chainList.Head.Next;
 				while(currentElement.IsDifferent(labelSearch) || currentElement.Next ==null  )
 				{
-					previousElement=currentElement;
 					currentElement = currentElement.Next;
 					number++;
 				}

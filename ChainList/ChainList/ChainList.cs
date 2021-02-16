@@ -13,7 +13,7 @@ namespace ChainList
 		}
 		private ElementList _first { get; set; }
 
-		public readonly int ListLenght;
+		public  int ListLenght;
 		public Boolean IsEmpty() 
 		{ 
 			return Head == null; 
@@ -39,10 +39,12 @@ namespace ChainList
 			{
 				Tail = new ElementList(weight, label, null);
 				Head = Tail;
+				ListLenght++;
 			}
 			else
 			{
 				InsertHeadElement(Head,weight, label );
+				ListLenght++;
 			}
 		}
 
