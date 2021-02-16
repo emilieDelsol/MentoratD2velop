@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace ChainList
+namespace ChainListProgram
 {
 	public class ElementList
 	{

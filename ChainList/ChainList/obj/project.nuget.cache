@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GjYL6W5bD7sfVWYmdDK7nhUg3W6S8K7f909vTiOmop/tZSzMzXQf0L7msGL8ctzXJoUn3uJxPH+nS2FBUw8GVQ==",
+  "dgSpecHash": "GPV6OBxRyK/AcRRtQ35NHbBREAp1DklF/LvmY/JP4w6GlK2Tk7u2x95ccp0qd7PHvZaebBtSh+/TdsUz94ob2w==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\exercicesMentorat\\ChainList\\ChainList\\ChainList.csproj",
+  "projectFilePath": "D:\\Documents\\exercicesMentorat\\ChainList\\ChainList\\ChainListProgram.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MilhieWin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],

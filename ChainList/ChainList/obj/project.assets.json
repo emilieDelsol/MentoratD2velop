@@ -58,9 +58,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\exercicesMentorat\\ChainList\\ChainList\\ChainList.csproj",
-      "projectName": "ChainList",
-      "projectPath": "D:\\Documents\\exercicesMentorat\\ChainList\\ChainList\\ChainList.csproj",
+      "projectUniqueName": "D:\\Documents\\exercicesMentorat\\ChainList\\ChainList\\ChainListProgram.csproj",
+      "projectName": "ChainListProgram",
+      "projectPath": "D:\\Documents\\exercicesMentorat\\ChainList\\ChainList\\ChainListProgram.csproj",
       "packagesPath": "C:\\Users\\MilhieWin\\.nuget\\packages\\",
       "outputPath": "D:\\Documents\\exercicesMentorat\\ChainList\\ChainList\\obj\\",
       "projectStyle": "PackageReference",

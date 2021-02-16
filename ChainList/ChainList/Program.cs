@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace ChainList
+namespace ChainListProgram
 {
 	class Program
 	{
@@ -30,7 +30,7 @@ namespace ChainList
 			Console.WriteLine($"Tail =  {chainList.Tail.GetElementToString()}");
 
 			
-			SearchLabel(chainList);
+			chainList.SearchLabel( weighLabels);
 		}
 
 

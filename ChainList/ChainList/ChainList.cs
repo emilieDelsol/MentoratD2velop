@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChainList
+namespace ChainListProgram
 {
 	public class ChainList
 	{
@@ -54,6 +54,11 @@ namespace ChainList
 			newElement.Next = head;
 			head = newElement;
 			Head = head;
+		}
+
+		internal void SearchLabel(List<WeightLabel> weighLabels)
+		{
+			throw new NotImplementedException();
 		}
 
 		private ElementList GetLatest()
