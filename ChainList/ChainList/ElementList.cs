@@ -23,9 +23,16 @@ namespace ChainListProgram
 			return _label != labelSearch;
 		}
 
-		internal bool IsEqual( string labelSearch)
+
+		internal bool IsEqualLabel(string labelSearch)
 		{
 			return _label == labelSearch;
+		}
+
+		internal bool IsEqualWeight( string weightSearch)
+		{
+			int wSearch = Convert.ToInt32(weightSearch);
+			return _weight == wSearch;
 		}
 
 		internal object GetElementToString()

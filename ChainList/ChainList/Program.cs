@@ -17,7 +17,11 @@ namespace ChainListProgram
 
 			chainList.SearchLabel();
 
-			
+			chainList.searchNumberWeight();
+
+
+
+
 		}
 
 	}
