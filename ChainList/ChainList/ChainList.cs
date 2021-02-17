@@ -13,7 +13,7 @@ namespace ChainListProgram
 		}
 		private ElementList _first { get; set; }
 
-		public  int ListLenght;
+		private  int _listLenght;
 		public Boolean IsEmpty() 
 		{ 
 			return Head == null; 
@@ -21,16 +21,7 @@ namespace ChainListProgram
 
 		public int GetLength()
 		{
-			int length = 0;
-			ElementList currentElement = Head;
-
-			while (currentElement != null)
-			{
-				length++;
-				currentElement = currentElement.Next;
-			}
-
-			return length;
+			return _listLenght;
 		}
 
 		public void Add(int weight, String label)
@@ -39,12 +30,12 @@ namespace ChainListProgram
 			{
 				Tail = new ElementList(weight, label, null);
 				Head = Tail;
-				ListLenght++;
+				_listLenght++;
 			}
 			else
 			{
 				InsertHeadElement(Head,weight, label );
-				ListLenght++;
+				_listLenght++;
 			}
 		}
 

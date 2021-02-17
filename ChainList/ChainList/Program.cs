@@ -24,7 +24,6 @@ namespace ChainListProgram
 				chainList.Add(weighLabels[i].weight, weighLabels[i].label);
 			}
 
-			Console.WriteLine($"The chainList length is {chainList.ListLenght}");
 			Console.WriteLine($"The chainList length is  {chainList.GetLength()}");
 			Console.WriteLine($"Head next =  {chainList.Head.Next.GetElementToString()}");
 			Console.WriteLine($"Tail =  {chainList.Tail.GetElementToString()}");
