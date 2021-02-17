@@ -8,31 +8,39 @@ namespace ChainListProgram
 {
 	public class App
 	{
+		private String _path;
 		public String SelectArray(String  userChoice)
 		{
 			if (userChoice == "1")
 			{
-				return @"../../../1K.json";
+				_path = @"../../../1K.json";
 			}
 			else if (userChoice == "2")
 			{
-				return @"../../../1M.json";
+				_path = @"../../../1M.json";
 			}
 			else if (userChoice == "3")
 			{
-				return @"../../../50K.json";
+				_path = @"../../../50K.json";
 			}
 			else
 			{
 				Console.WriteLine("no selected array!");
-				return "";
+				ChooseArray();
 			}
+			return _path;
 		}
 
-
-		public ChainList FillUpChainList(string path)
+		internal void ChooseArray()
 		{
-			StreamReader streamReader = new StreamReader(path);
+			Console.WriteLine("select an array: \n\t1 for 1K, \n\t2 for 1M , \n\t3 for 50K");
+			string userChoice = Console.ReadLine();
+			_path=SelectArray(userChoice);
+		}
+
+		public ChainList FillUpChainList()
+		{
+			StreamReader streamReader = new StreamReader(_path);
 			string json = streamReader.ReadToEnd();
 
 			List<WeightLabel> weighLabels = JsonConvert.DeserializeObject<List<WeightLabel>>(json);

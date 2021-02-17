@@ -23,7 +23,7 @@ namespace ChainListTest
 		{
 			ChainList chainList = new ChainList();
 			chainList.Add(10, "nine");
-			Assert.IsFalse(chainList.IsEmpty());
+			Assert.AreEqual(chainList.GetLength(),1);
 		}
 
 		[Test]
@@ -34,6 +34,5 @@ namespace ChainListTest
 			Assert.AreEqual(path, @"../../../1K.json");
 		}
 
-		
 	}
 }

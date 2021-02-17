@@ -11,9 +11,9 @@ namespace ChainListProgram
 		{
 			get; set;
 		}
-		private ElementList _first { get; set; }
 
 		private  int _listLenght;
+
 		public Boolean IsEmpty() 
 		{ 
 			return Head == null; 
@@ -23,6 +23,34 @@ namespace ChainListProgram
 		{
 			return _listLenght;
 		}
+
+		internal void SearchLabel()
+		{
+			Console.WriteLine("Enter Label you search:");
+			string labelSearch = Console.ReadLine();
+			int index = 1;
+			bool IsFound = false;
+			ElementList currentElement = Head;
+			
+			while(!IsFound && index<=_listLenght)
+			{
+				if(currentElement.IsEqual(labelSearch))
+				{
+					IsFound = true;
+					Console.WriteLine($" label {labelSearch} is found: {currentElement.GetElementToString()} \n\t it was the {index} element ");
+
+				}
+				currentElement = Head;
+				Head = Head.Next;
+				index++;
+			}
+			if(index>_listLenght)
+			{
+				Console.WriteLine($"label {labelSearch} not found");
+			}
+
+		}
+
 
 		public void Add(int weight, String label)
 		{
@@ -34,23 +62,19 @@ namespace ChainListProgram
 			}
 			else
 			{
-				InsertHeadElement(Head,weight, label );
+				InsertHeadElement(weight, label );
 				_listLenght++;
 			}
 		}
 
-		private void InsertHeadElement(ElementList head, int weight, string label)
+		private void InsertHeadElement(int weight, string label)
 		{
 			ElementList newElement = new ElementList(weight, label, null);
-			newElement.Next = head;
-			head = newElement;
-			Head = head;
+			newElement.Next = Head;
+			Head = newElement;
 		}
 
-		internal void SearchLabel(List<WeightLabel> weighLabels)
-		{
-			throw new NotImplementedException();
-		}
+		
 
 	}
 }
