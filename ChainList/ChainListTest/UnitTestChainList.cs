@@ -22,7 +22,7 @@ namespace ChainListTest
 		public void TestChainListNotEmpty()
 		{
 			ChainList chainList = new ChainList();
-			chainList.Add(10, "nine");
+			chainList.AddAtStart(10, "nine");
 			Assert.AreEqual(chainList.GetLength(),1);
 		}
 

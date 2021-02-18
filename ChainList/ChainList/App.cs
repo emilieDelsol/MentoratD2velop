@@ -48,7 +48,7 @@ namespace ChainListProgram
 			ChainList chainList = new ChainList();
 			for (int i = weighLabels.Count() - 1; i >= 0; i--)
 			{
-				chainList.Add(weighLabels[i].weight, weighLabels[i].label);
+				chainList.AddAtStart(weighLabels[i].weight, weighLabels[i].label);
 			}
 			return chainList;
 		}

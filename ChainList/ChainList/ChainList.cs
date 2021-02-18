@@ -6,13 +6,9 @@ namespace ChainListProgram
 {
 	public class ChainList
 	{
-		public ElementList Head;
-		public ElementList Tail
-		{
-			get; set;
-		}
+		public ElementList Head { get; set; }
 
-		private  int _listLenght;
+		private  int _listLenght { get; set; }
 
 		public Boolean IsEmpty() 
 		{ 
@@ -32,20 +28,21 @@ namespace ChainListProgram
 			string weightSearch = Console.ReadLine();
 			int index = 1;
 			int number = 0;
-			bool IsFound = false;
+			ElementList currentElement = Head;
+			ElementList elementFound = currentElement;
 			while(index<_listLenght && number<numberChoose)
 			{
-				if(Head.IsEqualWeight(weightSearch) )
+				if(currentElement.IsEqualWeight(weightSearch) )
 				{
-					IsFound = true;
 					number++;
+					elementFound = currentElement;
 				}
-				Head = Head.Next;
+				currentElement = currentElement.Next;
 				index ++;
 			}
-			if (IsFound && number == numberChoose)
+			if (number == numberChoose)
 			{
-				Console.WriteLine($"weight {weightSearch} found! at index {index} ");
+				Console.WriteLine($"{number} eme weight {weightSearch} found! at index {index} it is : {elementFound.GetElementToString()} ");
 			}
 			else
 			{ 
@@ -59,19 +56,19 @@ namespace ChainListProgram
 			string labelSearch = Console.ReadLine();
 			int index = 1;
 			bool IsFound = false;
-			
+			ElementList currentElement = Head;
 			while(!IsFound && index<=_listLenght)
 			{
-				if(Head.IsEqualLabel(labelSearch))
+				if(currentElement.IsEqualLabel(labelSearch))
 				{
 					IsFound = true;
-					Console.WriteLine($" label {labelSearch} is found: {Head.GetElementToString()} \n\t it was the {index} element ");
+					Console.WriteLine($" label {labelSearch} is found: {currentElement.GetElementToString()} \n\t it was the {index} element ");
 
 				}
-				Head = Head.Next;
+				currentElement = currentElement.Next;
 				index++;
 			}
-			if(index>_listLenght)
+			if(!IsFound)
 			{
 				Console.WriteLine($"label {labelSearch} not found");
 			}
@@ -79,29 +76,14 @@ namespace ChainListProgram
 		}
 
 
-		public void Add(int weight, String label)
+		public void AddAtStart(int weight, String label)
 		{
-			if(IsEmpty())
-			{
-				Tail = new ElementList(weight, label, null);
-				Head = Tail;
+				ElementList newElement = new ElementList(weight, label, null);
+				newElement.Next = Head;
+				Head = newElement;
 				_listLenght++;
-			}
-			else
-			{
-				InsertHeadElement(weight, label );
-				_listLenght++;
-			}
 		}
 
-		private void InsertHeadElement(int weight, string label)
-		{
-			ElementList newElement = new ElementList(weight, label, null);
-			newElement.Next = Head;
-			Head = newElement;
-		}
-
-		
 
 	}
 }
