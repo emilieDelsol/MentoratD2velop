@@ -35,9 +35,9 @@ namespace ChainListProgram
 			return _weight == wSearch;
 		}
 
-		internal object GetElementToString()
+		internal string GetElementToString()
 		{
-			return $"label: {_label}, weight: {_weight}";
+			return $"weight: {_weight}, label: {_label}";
 		}
 
 		internal bool LabelNotNull()

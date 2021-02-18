@@ -50,6 +50,26 @@ namespace ChainListProgram
 			}
 		}
 
+		public string SearchLastWeight(string weightSearch)
+		{
+			int index = 0;
+			ElementList flag = null;
+			ElementList currentElement = Head;
+			while(index<_listLenght)
+			{
+				if(currentElement.IsEqualWeight(weightSearch))
+				{
+					flag = currentElement;
+				}
+				index++;
+			}
+			if(flag!=null)
+			{
+				return flag.GetElementToString();
+			}
+			return "not found!!";
+		}
+
 		internal void SearchLabel()
 		{
 			Console.WriteLine("Enter Label you search:");

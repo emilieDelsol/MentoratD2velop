@@ -31,6 +31,12 @@ namespace ChainListProgram
 			return _path;
 		}
 
+		internal string ChooseWeight()
+		{
+			Console.WriteLine("Choose weight:");
+			return Console.ReadLine();
+		}
+
 		internal void ChooseArray()
 		{
 			Console.WriteLine("select an array: \n\t1 for 1K, \n\t2 for 1M , \n\t3 for 50K");

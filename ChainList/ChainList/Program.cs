@@ -19,9 +19,9 @@ namespace ChainListProgram
 
 			chainList.searchNumberWeight();
 
-
-
-
+			string weightSearch = app.ChooseWeight();
+			string resultSearchLastWeight = chainList.SearchLastWeight(weightSearch);
+			Console.WriteLine($"last weight {weightSearch}  element is : {resultSearchLastWeight}");
 		}
 
 	}
