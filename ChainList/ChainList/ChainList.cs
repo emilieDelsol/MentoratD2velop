@@ -50,6 +50,22 @@ namespace ChainListProgram
 			}
 		}
 
+		public String SelectNemeElement(int number)
+		{
+			int flag = 1;
+			ElementList currentElement = Head;
+			if(number>_listLenght)
+			{
+				return "number > listLenght!";
+			}
+			while(flag!=number)
+			{
+				flag++;
+				currentElement = currentElement.Next;
+			}
+			return currentElement.GetElementToString();
+		}
+
 		public string SearchLastWeight(string weightSearch)
 		{
 			int index = 0;

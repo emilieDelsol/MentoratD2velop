@@ -32,7 +32,13 @@ namespace ChainListProgram
 			{
 				Console.WriteLine(element);
 			}
-		}
 
+			Console.WriteLine("\n\n***********************************\nSelect number you want to see:");
+			int numberChoose = Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine($"\nI search all elements with this weight: {numberChoose}");
+			String result = chainList.SelectNemeElement(numberChoose);
+
+			Console.WriteLine(result);
+		}
 	}
 }
