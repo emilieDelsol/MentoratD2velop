@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChainList
+namespace ChainListProgram
 {
-	class WeightLabel
+	public class WeightLabel
 	{
 		[JsonProperty("weight")]
 		public Int32 weight { get; set; }

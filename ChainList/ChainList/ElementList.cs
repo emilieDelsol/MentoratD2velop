@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace ChainList
+namespace ChainListProgram
 {
 	public class ElementList
 	{
@@ -9,13 +9,13 @@ namespace ChainList
 
 		private String _label { get;  set; }
 		
-		public ElementList next;
+		public ElementList Next;
 
 		public ElementList(int weightEntry, String labelEntry, ElementList nextEntry)
 		{
 			_weight = weightEntry;
 			_label = labelEntry;
-			next = nextEntry;
+			Next = nextEntry;
 		}
 
 		internal bool IsDifferent(string labelSearch)
@@ -23,14 +23,21 @@ namespace ChainList
 			return _label != labelSearch;
 		}
 
-		internal bool IsEqual( string labelSearch)
+
+		internal bool IsEqualLabel(string labelSearch)
 		{
 			return _label == labelSearch;
 		}
 
-		internal object GetElementToString()
+		internal bool IsEqualWeight( string weightSearch)
 		{
-			return $"label: {_label}, weight: {_weight}";
+			int wSearch = Convert.ToInt32(weightSearch);
+			return _weight == wSearch;
+		}
+
+		internal string GetElementToString()
+		{
+			return $"weight: {_weight}, label: {_label}";
 		}
 
 		internal bool LabelNotNull()

@@ -2,23 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChainList
+namespace ChainListProgram
 {
 	public class ChainList
 	{
-		public ElementList Head { get; private set; }
-		public ElementList Tail
-		{
-			get
-			{
-				ElementList latest = Head;
-				while (latest.next != null)
-				{
-					latest = latest.next;
-				}
-				return latest;
-			}
-		}
+		public ElementList Head { get; set; }
+
+		private  int _listLenght { get; set; }
+
 		public Boolean IsEmpty() 
 		{ 
 			return Head == null; 
@@ -26,33 +17,93 @@ namespace ChainList
 
 		public int GetLength()
 		{
-			int length = 0;
-			ElementList flag = Head;
-
-			while (flag != null)
-			{
-				length++;
-				flag = flag.next;
-			}
-
-			return length;
+			return _listLenght;
 		}
 
-		public void Add(int weight, String label)
+		internal void searchNumberWeight()
 		{
-			if(IsEmpty())
+			Console.WriteLine("Choose surch number:");
+			int numberChoose = Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine("Choose weight:");
+			string weightSearch = Console.ReadLine();
+			int index = 1;
+			int number = 0;
+			ElementList currentElement = Head;
+			ElementList elementFound = currentElement;
+			while(index<_listLenght && number<numberChoose)
 			{
-				Head = new ElementList(weight, label, null);
+				if(currentElement.IsEqualWeight(weightSearch) )
+				{
+					number++;
+					elementFound = currentElement;
+				}
+				currentElement = currentElement.Next;
+				index ++;
+			}
+			if (number == numberChoose)
+			{
+				Console.WriteLine($"{number} eme weight {weightSearch} found! at index {index} it is : {elementFound.GetElementToString()} ");
 			}
 			else
-			{
-				ElementList latest = Tail;
-				latest.next = new ElementList (weight, label, null);
+			{ 
+				Console.WriteLine($"weight {weightSearch} not found");
 			}
 		}
 
+		public string SearchLastWeight(string weightSearch)
+		{
+			int index = 0;
+			ElementList flag = null;
+			ElementList currentElement = Head;
+			while(index<_listLenght)
+			{
+				if(currentElement.IsEqualWeight(weightSearch))
+				{
+					flag = currentElement;
+				}
+				index++;
+			}
+			if(flag!=null)
+			{
+				return flag.GetElementToString();
+			}
+			return "not found!!";
+		}
 
-	
+		internal void SearchLabel()
+		{
+			Console.WriteLine("Enter Label you search:");
+			string labelSearch = Console.ReadLine();
+			int index = 1;
+			bool IsFound = false;
+			ElementList currentElement = Head;
+			while(!IsFound && index<=_listLenght)
+			{
+				if(currentElement.IsEqualLabel(labelSearch))
+				{
+					IsFound = true;
+					Console.WriteLine($" label {labelSearch} is found: {currentElement.GetElementToString()} \n\t it was the {index} element ");
+
+				}
+				currentElement = currentElement.Next;
+				index++;
+			}
+			if(!IsFound)
+			{
+				Console.WriteLine($"label {labelSearch} not found");
+			}
+
+		}
+
+
+		public void AddAtStart(int weight, String label)
+		{
+				ElementList newElement = new ElementList(weight, label, null);
+				newElement.Next = Head;
+				Head = newElement;
+				_listLenght++;
+		}
+
 
 	}
 }
