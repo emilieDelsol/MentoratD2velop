@@ -35,7 +35,7 @@ namespace ChainListProgram
 			return _weight == wSearch;
 		}
 
-		internal string GetElementToString()
+		public string GetElementToString()
 		{
 			return $"weight: {_weight}, label: {_label}";
 		}

@@ -95,6 +95,22 @@ namespace ChainListProgram
 
 		}
 
+		public List<String> SelectAllByWeight(string weightSearch)
+		{
+			int index = 0;
+			ElementList currentElement = Head;
+			List<String> elements = new List<String>();
+			while (index < _listLenght)
+			{
+				if (currentElement.IsEqualWeight(weightSearch))
+				{
+					elements.Add(currentElement.GetElementToString());
+				}
+				currentElement = currentElement.Next;
+				index++;
+			}
+				return elements;
+		}
 
 		public void AddAtStart(int weight, String label)
 		{
