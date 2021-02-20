@@ -50,17 +50,17 @@ namespace ChainListProgram
 			}
 		}
 
-		public String SelectNemeElement(int number)
+		public String SelectNthElement(int number)
 		{
-			int flag = 1;
+			int currentIndex = 1;
 			ElementList currentElement = Head;
 			if(number>_listLenght)
 			{
 				return "number > listLenght!";
 			}
-			while(flag!=number)
+			while(currentIndex!=number)
 			{
-				flag++;
+				currentIndex++;
 				currentElement = currentElement.Next;
 			}
 			return currentElement.GetElementToString();

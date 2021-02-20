@@ -10,36 +10,30 @@ namespace ChainListTest
 	{
 		//rechercher tous les éléments avec weight égal à une valeur donnée
 		[Test]
-		public void TestSelectAllByWeightFirstAddElement()
+		public void TestSelectAllByWeightEnterLastElement()
 		{
-			ChainList chainList = new ChainList();
-			chainList.AddAtStart(2, "two");
-			chainList.AddAtStart(1, "one");
-			chainList.AddAtStart(3, "three");
-
+			ChainList chainList = CreateChainListTest();
+			
 			List<String> response = chainList.SelectAllByWeight("2");
+
+			ElementList lastElement = GetElement(chainList, chainList.GetLength()); 
 			List<String> expectedList = new List<String>();
-			ElementList firstAddElement = new ElementList(2, "two", null);
-			string elementExpected = firstAddElement.GetElementToString();
+			string elementExpected = lastElement.GetElementToString();
 			expectedList.Add(elementExpected);
 			Assert.AreEqual(expectedList, response);
 
-
 		}
+
+		
 
 		[Test]
 		public void TestSelectAllByWeightMiddleAddElement()
 		{
-			ChainList chainList = new ChainList();
-			chainList.AddAtStart(2, "two");
-			chainList.AddAtStart(1, "one");
-			chainList.AddAtStart(3, "three");
+			ChainList chainList = CreateChainListTest();
 
 			List<String> response = chainList.SelectAllByWeight("1");
 			List<String> expectedList = new List<String>();
-			ElementList firstAddElement = new ElementList(2, "two", null);
-			ElementList secondAddElement = new ElementList(1, "one", firstAddElement);
-			ElementList thirdAddElement = new ElementList(3, "three", secondAddElement);
+			ElementList secondAddElement = GetElement(chainList,2);
 			expectedList.Add(secondAddElement.GetElementToString());
 			Assert.AreEqual(expectedList, response);
 
@@ -48,19 +42,15 @@ namespace ChainListTest
 
 
 		[Test]
-		public void TestSelectAllByWeightLastAddElement()
+		public void TestSelectAllByWeightFirstElement()
 		{
-			ChainList chainList = new ChainList();
-			chainList.AddAtStart(2, "two");
-			chainList.AddAtStart(1, "one");
-			chainList.AddAtStart(3, "three");
+			ChainList chainList = CreateChainListTest();
 
 			List<String> response = chainList.SelectAllByWeight("3");
 			List<String> expectedList = new List<String>();
-			ElementList firstAddElement = new ElementList(2, "two", null);
-			ElementList secondAddElement = new ElementList(1, "one", firstAddElement);
-			ElementList thirdAddElement = new ElementList(3, "three", secondAddElement);
-			expectedList.Add(thirdAddElement.GetElementToString());
+			ElementList firstElement = GetElement(chainList, 1);
+			
+			expectedList.Add(firstElement.GetElementToString());
 			Assert.AreEqual(expectedList, response);
 
 		}
@@ -93,5 +83,28 @@ namespace ChainListTest
 
 		}
 
+		private ChainList CreateChainListTest()
+		{
+			ChainList chainList = new ChainList();
+			chainList.AddAtStart(2, "two");
+			chainList.AddAtStart(1, "one");
+			chainList.AddAtStart(3, "three");
+			return chainList;
+		}
+
+		private ElementList GetElement(ChainList chainList, int indexSearch)
+		{
+			ElementList currentElement = chainList.Head;
+			for (int i = 1; i <= chainList.GetLength(); i++)
+			{
+
+				if (i == indexSearch)
+				{
+					return currentElement;
+				}
+				currentElement = currentElement.Next;
+			}
+			return null;
+		}
 	}
 }
