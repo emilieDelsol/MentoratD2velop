@@ -50,6 +50,22 @@ namespace ChainListProgram
 			}
 		}
 
+		public String SelectNthElement(int number)
+		{
+			int currentIndex = 1;
+			ElementList currentElement = Head;
+			if(number>_listLenght)
+			{
+				return "number > listLenght!";
+			}
+			while(currentIndex!=number)
+			{
+				currentIndex++;
+				currentElement = currentElement.Next;
+			}
+			return currentElement.GetElementToString();
+		}
+
 		public string SearchLastWeight(string weightSearch)
 		{
 			int index = 0;
@@ -95,6 +111,22 @@ namespace ChainListProgram
 
 		}
 
+		public List<String> SelectAllByWeight(string weightSearch)
+		{
+			int index = 0;
+			ElementList currentElement = Head;
+			List<String> elements = new List<String>();
+			while (index < _listLenght)
+			{
+				if (currentElement.IsEqualWeight(weightSearch))
+				{
+					elements.Add(currentElement.GetElementToString());
+				}
+				currentElement = currentElement.Next;
+				index++;
+			}
+				return elements;
+		}
 
 		public void AddAtStart(int weight, String label)
 		{
