@@ -37,3 +37,8 @@ Ici on part du principe que les tableaux ne sont pas triés.
       - [ ] rechercher tous les éléments avec weight égale à une valeur donnée
       - [ ] récupérer le niéme élément
 
+- exercices suivants:
+
+- [ ] Insérer un élément en tête du tableau
+- [ ] Insérer un élément en queue du tableau
+- [ ] Insérer un élément au milieu (nième place)
