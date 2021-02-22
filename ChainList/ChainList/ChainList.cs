@@ -68,6 +68,8 @@ namespace ChainListProgram
 			return currentElement.GetElementToString();
 		}
 
+		
+
 		public string SearchLastWeight(string weightSearch)
 		{
 			int index = 0;
@@ -145,7 +147,7 @@ namespace ChainListProgram
 		public void AddAtEnd(int weight, String label)
 		{
 			ElementList newElement = new ElementList(weight, label, null);
-			if(_listLenght<1)
+			if(_listLenght<=1)
 			{
 				Head = Tail = newElement;
 			}
@@ -153,12 +155,41 @@ namespace ChainListProgram
 			{
 				Tail.Next = newElement;
 				Tail = newElement;
-
 			}
 			_listLenght++;
 
 		}
 
+		public void AddAtChooseId(int chooseId, int weight, string label)
+		{
+			int intitalLength = _listLenght;
+			if (chooseId == 1)
+			{
+				AddAtStart(weight, label);
+			}
+			else if (chooseId == intitalLength+1)
+			{
+				AddAtEnd(weight, label);
+			}
+			else
+			{
+				ElementList currentElement = Head;
+				ElementList previous = currentElement;
+				int currentIndex = 1;
+				while(currentIndex<chooseId)
+				{
+					previous = currentElement;
+					currentElement = currentElement.Next;
+					currentIndex++;
+				}
+				ElementList next = currentElement;
+				currentElement = new ElementList(weight, label, next);
+				previous.Next = currentElement;
+			}
+			_listLenght++;
+
+
+		}
 
 	}
 }
