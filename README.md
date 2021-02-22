@@ -28,7 +28,7 @@ Ici on part du principe que les tableaux ne sont pas triés.
    - [ ] ajout d'un élément dans un tableau trié. 
 
 ---
-## dossier "chainlist":
+## dossier "chainlist": réponse aux questions suivantes en c#:
   - [ ] création d'une liste chaînée a partir des tableaux fournis
   - [ ] création des algorithmes de recherches sur la liste chaînée en tdd : 
       - [ ] rechercher un élément dans le tableau à partir du label
