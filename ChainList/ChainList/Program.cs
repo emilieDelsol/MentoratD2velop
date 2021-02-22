@@ -14,7 +14,7 @@ namespace ChainListProgram
 
 			app.ChooseArray();
 			ChainList chainList = app.FillUpChainList();
-
+		
 			chainList.SearchLabel();
 
 			chainList.searchNumberWeight();

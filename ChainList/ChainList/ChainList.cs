@@ -7,7 +7,7 @@ namespace ChainListProgram
 	public class ChainList
 	{
 		public ElementList Head { get; set; }
-
+		public ElementList Tail { get; set; }
 		private  int _listLenght { get; set; }
 
 		public Boolean IsEmpty() 
@@ -49,6 +49,8 @@ namespace ChainListProgram
 				Console.WriteLine($"weight {weightSearch} not found");
 			}
 		}
+
+	
 
 		public String SelectNthElement(int number)
 		{
@@ -134,6 +136,27 @@ namespace ChainListProgram
 				newElement.Next = Head;
 				Head = newElement;
 				_listLenght++;
+				if(_listLenght==1)
+				{
+					Tail = Head;
+				}
+		}
+
+		public void AddAtEnd(int weight, String label)
+		{
+			ElementList newElement = new ElementList(weight, label, null);
+			if(_listLenght<1)
+			{
+				Head = Tail = newElement;
+			}
+			else
+			{
+				Tail.Next = newElement;
+				Tail = newElement;
+
+			}
+			_listLenght++;
+
 		}
 
 

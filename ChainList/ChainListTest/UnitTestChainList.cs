@@ -34,6 +34,24 @@ namespace ChainListTest
 			Assert.AreEqual(path, @"../../../1K.json");
 		}
 
-		
+		[Test]
+		public void TestAddAtEnd()
+		{
+			ChainList chainList = new ChainList();
+			chainList.AddAtEnd(10, "nine");
+			ElementList expectedElement = new ElementList(10, "nine", null);
+			ElementList result = chainList.Tail;
+			Assert.AreEqual(result.GetElementToString(), expectedElement.GetElementToString());
+		}
+		[Test]
+		public void TestAddAtEndListLength()
+		{
+			ChainList chainList = new ChainList();
+			chainList.AddAtEnd(10, "nine");
+			chainList.AddAtEnd(10, "nine");
+			int length = chainList.GetLength();
+			Assert.AreEqual(length, 2);
+		}
+
 	}
 }
